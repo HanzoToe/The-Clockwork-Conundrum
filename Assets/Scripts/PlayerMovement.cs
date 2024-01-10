@@ -33,11 +33,6 @@ public class PlayerMovement : MonoBehaviour
         movement = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            rb.velocity = new Vector2(movement * speed * 2, rb.velocity.y);
-        }
     }
 
     private void HandleJump()
