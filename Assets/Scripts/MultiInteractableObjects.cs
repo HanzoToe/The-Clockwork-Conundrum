@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HidingInteractables : Collidables
+public class MultiInteractables : Collidables
 {
-    private bool z_interacted = false;
+    private bool x_interacted = false;
     protected override void OnCollided(GameObject collidedObject)
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -19,11 +19,14 @@ public class HidingInteractables : Collidables
 
     private void OnInteract()
     {
-        if (!z_interacted)
+        if (!x_interacted)
         {
-            z_interacted = true;
-            Debug.Log("(2) Interakterade med  " + name);
+            x_interacted = true;
+            Debug.Log("(multi) Interakterade med  " + name);
         }
-        z_interacted = false;
+        x_interacted = false;
+
+        
     }
+
 }
