@@ -8,6 +8,7 @@ public class EnemyController_Stationary : MonoBehaviour
     public Transform player;
     public float visionRange = 5f;
     public float moveSpeed = 5f;
+    public Transform patrolPoint;
     private bool isChasingPlayer = false;
     private Rigidbody2D rb;
 
@@ -28,6 +29,12 @@ public class EnemyController_Stationary : MonoBehaviour
             if (Vector2.Distance(transform.position, player.position) < 1f)
             {
                 Invoke("Restart", 0.2f);
+            }
+
+            if (Vector2.Distance(transform.position, patrolPoint.position) < 1f)
+            {
+                isChasingPlayer = false;
+                rb.velocity = Vector2.zero;
             }
         }
         else
