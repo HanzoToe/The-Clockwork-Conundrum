@@ -15,13 +15,6 @@ public class EnemyController : MonoBehaviour
     private bool isChasingPlayer = false;
     private Rigidbody2D playerRigidbody;
     private float dirX;
-    
-    
-
-
-
-
-
 
 
 
@@ -31,6 +24,8 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        dirX = -1f;
     }
 
     // Update is called once per frame
@@ -69,15 +64,20 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerdetected = true;
         }
-    }
 
+        if (other.gameObject.name.Equals("Player"))
+        {
+            Restart();
+        }
+
+    }
+    
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -92,4 +92,8 @@ public class EnemyController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
+
+
 }
