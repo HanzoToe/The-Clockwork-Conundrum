@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1206877012}
-  visionRange: 5
+  visionRange: 4
   moveSpeed: 5
   targetPoint: {fileID: 1056109874}
 --- !u!50 &438265462
