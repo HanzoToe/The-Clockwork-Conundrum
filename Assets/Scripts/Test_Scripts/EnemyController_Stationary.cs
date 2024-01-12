@@ -6,23 +6,23 @@ using UnityEngine.SceneManagement;
 public class EnemyController_Stationary : MonoBehaviour
 {
     public Transform player;
-    public float visionRange = 5f;
     public float moveSpeed = 5f;
-    public Transform patrolPoint;
+    public Transform targetPoint;
+
     private bool isChasingPlayer = false;
     private bool isReturning = false;
     private Vector2 originalPosition;
     private Rigidbody2D rb;
+    private VisionRange visionRangeScript;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalPosition = transform.position;
+        visionRangeScript = GetComponentInChildren<VisionRange>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (isChasingPlayer)
         {
@@ -47,25 +47,18 @@ public class EnemyController_Stationary : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(transform.position, player.position) < visionRange)
+            if (Vector2.Distance(transform.position, player.position) < visionRangeScript.visionRange)
             {
                 isChasingPlayer = true;
             }
             else
             {
-                Vector2 direction = ((Vector2)patrolPoint.position - (Vector2)transform.position).normalized;
-                rb.velocity = direction * moveSpeed;
-
-                if (Vector2.Distance(transform.position, patrolPoint.position) < 1f)
-                {
-                    isReturning = true;
-                    rb.velocity = Vector2.zero;
-                }
+                rb.velocity = Vector2.zero;
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -73,7 +66,7 @@ public class EnemyController_Stationary : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -87,3 +80,4 @@ public class EnemyController_Stationary : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
+
