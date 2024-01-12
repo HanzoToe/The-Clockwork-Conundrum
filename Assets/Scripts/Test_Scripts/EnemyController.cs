@@ -25,18 +25,25 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-
+        playermovement = GetComponent<PlayerMovement>();
         dirX = -1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playermovement.hiding)
+        {
+            isChasingPlayer = false;
+            playerdetected = false;
+        }
+
         if (playerdetected && !isChasingPlayer)
         {
             isChasingPlayer = true;
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolpoints.Length; // Update current patrol index
         }
+
 
         if (isChasingPlayer)
         {
