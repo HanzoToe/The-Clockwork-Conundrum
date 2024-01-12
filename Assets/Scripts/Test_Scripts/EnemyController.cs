@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isChasingPlayer = false;
     private Rigidbody2D playerRigidbody;
-    private float dirX;
     public PlayerMovement playermovement; 
 
 
@@ -25,8 +24,8 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        playermovement = GetComponent<PlayerMovement>();
-        dirX = -1f;
+        playermovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+
     }
 
     // Update is called once per frame

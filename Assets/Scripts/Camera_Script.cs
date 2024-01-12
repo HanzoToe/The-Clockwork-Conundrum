@@ -4,18 +4,35 @@ using UnityEngine;
 
 public class Camera_Script : MonoBehaviour
 {
-    public Transform FollowObject;
+    public Transform player;
+    public BoxCollider2D boundsCollider;
+    private Vector3 minBounds;
+    private Vector3 maxBounds;
 
     // Use this for initialization
     void Start()
     {
-
+        minBounds = boundsCollider.bounds.min;
+        maxBounds = boundsCollider.bounds.max;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = new Vector3(FollowObject.position.x, transform.position.y, transform.position.z);
-        transform.position = pos;
+
+    }
+
+    private void LateUpdate()
+    {
+        if (player != null)
+        {
+            Vector3 playerPosition = player.position;
+            Vector3 cameraPosition = transform.position;
+
+            cameraPosition.x = Mathf.Clamp(playerPosition.x, minBounds.x, maxBounds.x);
+            cameraPosition.y = Mathf.Clamp(playerPosition.y, minBounds.y, maxBounds.y);
+
+            transform.position = cameraPosition;
+        }
     }
 }
