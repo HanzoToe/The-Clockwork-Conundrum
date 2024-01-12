@@ -71,10 +71,7 @@ public class EnemyController : MonoBehaviour
             playerdetected = true;
         }
 
-        if (other.gameObject.name.Equals("Player"))
-        {
-            Restart();
-        }
+        
 
     }
     

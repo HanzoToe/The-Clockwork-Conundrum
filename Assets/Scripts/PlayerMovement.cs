@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private float dirX;
     private SpriteRenderer rend;
-    private bool canHide = false;
-    private bool hiding = false;
+    public bool canHide = false;
+    public bool hiding = false;
 
     // Start is called before the first frame update
     private void Start()
