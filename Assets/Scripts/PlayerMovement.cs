@@ -26,31 +26,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal") * speed;
-
-        if (canHide && Input.GetKey(KeyCode.E))
-        {
-            Physics2D.IgnoreLayerCollision(8, 9, true);
-            rend.sortingOrder = 0;
-            hiding = true;
-        }
-        else
-        {
-            Physics2D.IgnoreLayerCollision(8, 9, false);
-            rend.sortingOrder = 2;
-            hiding = false;
-        }
-
+        CanHide();
         HandleJump();
     }
 
     private void FixedUpdate()
     {
-        if (!hiding)
-            rb.velocity = new Vector2(dirX, rb.velocity.y);
-        else
-            rb.velocity = Vector2.zero;
-       
+        Hiding();
         HandleMovement();
     }
 
@@ -104,5 +86,31 @@ public class PlayerMovement : MonoBehaviour
         {
             isgrounded = false; 
         }
+    }
+
+    public void CanHide()
+    {
+        dirX = Input.GetAxisRaw("Horizontal") * speed;
+
+        if (canHide && Input.GetKey(KeyCode.E))
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, true);
+            rend.sortingOrder = 0;
+            hiding = true;
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, false);
+            rend.sortingOrder = 2;
+            hiding = false;
+        }
+    }
+
+    public void Hiding()
+    {
+        if (!hiding)
+            rb.velocity = new Vector2(dirX, rb.velocity.y);
+        else
+            rb.velocity = Vector2.zero;
     }
 }
