@@ -6,23 +6,23 @@ using UnityEngine.SceneManagement;
 public class EnemyController_Stationary : MonoBehaviour
 {
     public Transform player;
+    public float visionRange = 5f;
     public float moveSpeed = 5f;
     public Transform targetPoint;
-
     private bool isChasingPlayer = false;
     private bool isReturning = false;
     private Vector2 originalPosition;
     private Rigidbody2D rb;
-    private VisionRange visionRangeScript;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalPosition = transform.position;
-        visionRangeScript = GetComponentInChildren<VisionRange>();
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (isChasingPlayer)
         {
@@ -47,7 +47,7 @@ public class EnemyController_Stationary : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(transform.position, player.position) < visionRangeScript.visionRange)
+            if (Vector2.Distance(transform.position, player.position) < visionRange)
             {
                 isChasingPlayer = true;
             }
@@ -58,7 +58,7 @@ public class EnemyController_Stationary : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -66,7 +66,7 @@ public class EnemyController_Stationary : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -78,6 +78,12 @@ public class EnemyController_Stationary : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
     }
 }
 
