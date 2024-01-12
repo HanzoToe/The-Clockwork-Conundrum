@@ -6,7 +6,7 @@ using UnityEngine;
 public class Playerboll : MonoBehaviour
 {
 
-    [SerializeField] private Cooldown cooldown;
+    float cooldown = 0;
 
     [SerializeField]
     GameObject Ball;
@@ -21,13 +21,15 @@ public class Playerboll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cooldown -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && cooldown < 0)
         {
 
 
             Instantiate(Ball, transform.position + new Vector3(1, 2), Quaternion.identity);
+
+            cooldown = 5;
 
         }
 

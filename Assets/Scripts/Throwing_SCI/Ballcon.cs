@@ -6,7 +6,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
 
-    [SerializeField] private Cooldown cooldown;
+    
 
     public float power = 10f;
 
