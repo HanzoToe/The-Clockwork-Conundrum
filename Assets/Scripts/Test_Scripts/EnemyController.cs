@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private bool isChasingPlayer = false;
     private Rigidbody2D playerRigidbody;
     private float dirX;
+    public PlayerMovement playermovement; 
 
 
 
