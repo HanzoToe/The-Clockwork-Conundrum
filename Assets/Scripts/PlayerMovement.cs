@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,25 +11,67 @@ public class PlayerMovement : MonoBehaviour
     private bool isgrounded = false;
 
     public Rigidbody2D rb;
+    private float dirX;
+    private SpriteRenderer rend;
+    private bool canHide = false;
+    private bool hiding = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        dirX = Input.GetAxisRaw("Horizontal") * speed;
+
+        if (canHide && Input.GetKey(KeyCode.E))
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, true);
+            rend.sortingOrder = 0;
+            hiding = true;
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, false);
+            rend.sortingOrder = 2;
+            hiding = false;
+        }
+
         HandleJump();
     }
 
     private void FixedUpdate()
     {
+        if (!hiding)
+            rb.velocity = new Vector2(dirX, rb.velocity.y);
+        else
+            rb.velocity = Vector2.zero;
+       
         HandleMovement();
     }
 
-   private void HandleMovement()
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Equals("Cover"))
+        {
+            canHide = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.name.Equals("Cover"))
+        {
+            canHide = false;
+        }
+    }
+
+
+    private void HandleMovement()
     {
         movement = Input.GetAxisRaw("Horizontal");
 
