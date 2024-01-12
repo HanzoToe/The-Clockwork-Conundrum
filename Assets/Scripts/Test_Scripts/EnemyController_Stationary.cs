@@ -8,7 +8,7 @@ public class EnemyController_Stationary : MonoBehaviour
     public Transform player;
     public float visionRange = 5f;
     public float moveSpeed = 5f;
-    public Transform patrolPoint;
+    public Transform targetPoint;
     private bool isChasingPlayer = false;
     private bool isReturning = false;
     private Vector2 originalPosition;
@@ -53,14 +53,7 @@ public class EnemyController_Stationary : MonoBehaviour
             }
             else
             {
-                Vector2 direction = ((Vector2)patrolPoint.position - (Vector2)transform.position).normalized;
-                rb.velocity = direction * moveSpeed;
-
-                if (Vector2.Distance(transform.position, patrolPoint.position) < 1f)
-                {
-                    isReturning = true;
-                    rb.velocity = Vector2.zero;
-                }
+                rb.velocity = Vector2.zero;
             }
         }
     }
@@ -86,4 +79,11 @@ public class EnemyController_Stationary : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
+    }
 }
+
