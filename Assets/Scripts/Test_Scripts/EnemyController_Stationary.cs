@@ -1,89 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnemyController_Stationary : MonoBehaviour
 {
-    public Transform player;
-    public float visionRange = 5f;
-    public float moveSpeed = 5f;
-    public Transform targetPoint;
-    private bool isChasingPlayer = false;
-    private bool isReturning = false;
-    private Vector2 originalPosition;
-    private Rigidbody2D rb;
+    public float detectionRadius = 5f;
+    public LayerMask playerLayer;
 
-    // Start is called before the first frame update
-    void Start()
+    private Transform player;
+    private bool playerSpotted;
+
+    public PlayerMovement playermovement; 
+
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        originalPosition = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playermovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isChasingPlayer)
+        if (playermovement.hiding)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = direction * moveSpeed;
-
-            if (Vector2.Distance(transform.position, player.position) < 1f)
-            {
-                Restart();
-            }
-        }
-        else if (isReturning)
-        {
-            Vector2 direction = (originalPosition - (Vector2)transform.position).normalized;
-            rb.velocity = direction * moveSpeed;
-
-            if (Vector2.Distance(transform.position, originalPosition) < 1f)
-            {
-                isReturning = false;
-                rb.velocity = Vector2.zero;
-            }
+            playerSpotted = false;
+            detectionRadius = 0f;
         }
         else
         {
-            if (Vector2.Distance(transform.position, player.position) < visionRange)
-            {
-                isChasingPlayer = true;
-            }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
+            detectionRadius = 4f;
         }
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+
+        if (!playerSpotted)
         {
-            isChasingPlayer = true;
+            // Check if the player is within the detection radius
+            if (Vector2.Distance(transform.position, player.position) <= detectionRadius)
+            {
+                // Check if there are no obstacles between the guard and the player
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
+                if (hit.collider != null && hit.collider.CompareTag("Player"))
+                {
+                    // Player is spotted
+                    playerSpotted = true;
+                    DisablePlayerMovement();
+                    RestartScene();
+                }
+            }
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    private void DisablePlayerMovement()
     {
-        if (collision.CompareTag("Player"))
-        {
-            isChasingPlayer = false;
-            rb.velocity = Vector2.zero;
-        }
+        // Disable the player's movement script or controller here
+        // For example, if you have a PlayerMovement script, you can do:
+        // player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false; 
     }
 
-    public void Restart()
+    private void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Restart the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, visionRange);
+        // Draw the detection radius as a wire sphere in the scene view
+        Handles.color = Color.yellow;
+        Handles.DrawWireDisc(transform.position, Vector3.forward, detectionRadius);
     }
 }
 

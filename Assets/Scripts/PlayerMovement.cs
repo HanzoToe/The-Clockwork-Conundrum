@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name.Equals("Cover"))
+        if (other.gameObject.CompareTag("Cover"))
         {
             canHide = true;
         }
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.name.Equals("Cover"))
+        if(other.gameObject.CompareTag("Cover"))
         {
             canHide = false;
         }
