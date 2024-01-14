@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        playermovement = GetComponent<PlayerMovement>();
+        playermovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         dirX = -1f;
     }
 
