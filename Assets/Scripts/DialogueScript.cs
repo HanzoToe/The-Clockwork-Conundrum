@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class DialogueScript : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class DialogueScript : MonoBehaviour
     public float textspeed;
     public string[] lines;
     private int index;
+    public CanvasGroup canvasGroup;
+    FadeInOut fadeinout; 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        fadeinout = GetComponent<FadeInOut>();
         textcomponent.text = string.Empty;
         StartDialogue();
     }
@@ -62,10 +66,17 @@ public class DialogueScript : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
-
-            new WaitForSeconds(2);
-            SceneManager.LoadScene(1);
+            fadeinout.FadeOut();
+            StartCoroutine(LoadNextScene()); 
         }
+    }
+
+    IEnumerator LoadNextScene()
+    {
+        // Wait for the fade-out animation to complete
+        yield return new WaitForSeconds(2f);
+     
+        // Load the new scene
+        SceneManager.LoadScene(1);
     }
 }

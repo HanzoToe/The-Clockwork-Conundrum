@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Final_Game_Build/Train_Scene.unity
     guid: 9f55fbfe8b0493d4f99f3a9606549c76
   - enabled: 1
-    path: Assets/Scenes/Train_Inside.unity
+    path: Assets/Scenes/Final_Game_Build/Train_Inside.unity
     guid: 5a693dac202669140b04d28313b8e533
   - enabled: 1
     path: Assets/Scenes/Final_Game_Build/Train_Scene_1.unity
     guid: 6ee346e5bcc35ff44bb95197c07433e6
   - enabled: 1
-    path: Assets/Scenes/Phone_Test.unity
+    path: Assets/Scenes/Final_Game_Build/Phone_Test.unity
     guid: 89651836369bdac45ab4d345eef3fd8b
   m_configObjects: {}

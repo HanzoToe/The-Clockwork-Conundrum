@@ -4,6 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class EnemyController_Stationary : MonoBehaviour
 {
     public float detectionRadius = 5f;
@@ -59,9 +64,12 @@ public class EnemyController_Stationary : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+    #if UNITY_EDITOR
+
         // Draw the detection radius as a wire sphere in the scene view
         Handles.color = Color.yellow;
         Handles.DrawWireDisc(transform.position, Vector3.forward, detectionRadius);
+    #endif
     }
 }
 

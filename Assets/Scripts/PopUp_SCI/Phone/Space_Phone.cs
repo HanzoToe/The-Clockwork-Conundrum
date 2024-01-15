@@ -19,5 +19,13 @@ public class Space_Phone : MonoBehaviour
         {
             PopUp_Space.SetActive(true);
         }
+
+        if (PopUp_Space)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PopUp_Space.SetActive(false);
+            }
+        }
     }
 }
