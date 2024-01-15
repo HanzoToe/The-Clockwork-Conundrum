@@ -91,11 +91,14 @@ public class PlayerMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal") * speed;
 
-        if (canHide)
+        if (Input.GetKey(KeyCode.F))
         {
-            Physics2D.IgnoreLayerCollision(8, 9, true);
-            rend.sortingOrder = 0;
-            hiding = true;
+            if (canHide)
+            {
+                Physics2D.IgnoreLayerCollision(8, 9, true);
+                rend.sortingOrder = 0;
+                hiding = true;
+            }
         }
         else
         {
@@ -103,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
             rend.sortingOrder = 2;
             hiding = false;
         }
+
     }
 
     public void Hiding()
