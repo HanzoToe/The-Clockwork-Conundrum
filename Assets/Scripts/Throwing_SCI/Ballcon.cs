@@ -106,8 +106,12 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        new WaitForSeconds(2);
-        Destroy(gameObject);
+        if (collision.collider.CompareTag("ground"))
+        {
+            new WaitForSeconds(2);
+            Destroy(gameObject);
+        }
+  
 
 
     }

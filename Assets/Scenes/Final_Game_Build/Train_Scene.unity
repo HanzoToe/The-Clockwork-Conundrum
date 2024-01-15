@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cookie_Man
       objectReference: {fileID: 0}
+    - target: {fileID: 7192333330729799515, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
+      propertyPath: jump
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8928579492754765760, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
       propertyPath: PressQUI
       value: 
@@ -905,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828118851213089627, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_Size.y
-      value: 3.253052
+      value: 3.1552336
       objectReference: {fileID: 0}
     - target: {fileID: 8828118851213089627, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_Offset.x
@@ -913,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828118851213089627, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0043975115
+      value: 0.044511676
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1582,6 +1586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: 1175164737073409750, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1601494309773575982, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.38
@@ -1621,6 +1629,10 @@ PrefabInstance:
     - target: {fileID: 1601494309773575982, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966578361183881464, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7052361321476039740, guid: 8c69dbf76f6f2df49ab56ab9774ed203, type: 3}
       propertyPath: m_Constraints

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8874312511683737115}
   - component: {fileID: 7192333330729799515}
   - component: {fileID: 8928579492754765760}
-  - component: {fileID: 5959871076888186604}
   - component: {fileID: 4724460337632188137}
   m_Layer: 8
   m_Name: Cookie_Man
@@ -175,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jump: 9
+  jump: 12
   rb: {fileID: 0}
   canHide: 0
   hiding: 0
@@ -194,18 +193,6 @@ MonoBehaviour:
   pullPoint: {fileID: 0}
   boundaryPoint: {fileID: 0}
   PressQUI: {fileID: 0}
---- !u!114 &5959871076888186604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5669985544476512300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb8e16e6ff0af84ab8474f6f01b2dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4724460337632188137
 MonoBehaviour:
   m_ObjectHideFlags: 0
