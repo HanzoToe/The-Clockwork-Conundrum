@@ -6,6 +6,10 @@ TagManager:
   tags:
   - ground
   - Cover
+  - Box
+  - BoxBoundry
+  - Pickup
+  - QUI
   layers:
   - Default
   - TransparentFX

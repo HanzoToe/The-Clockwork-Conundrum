@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorFunction : MonoBehaviour
+public class Door_Train_Inside : MonoBehaviour
 {
     FadeInOut fade;
-    public GameObject pressEUI; 
+    public GameObject pressEUI;
     public GameObject player;
     public GameObject door;
     public float timebeforenextscene;
@@ -36,7 +35,7 @@ public class DoorFunction : MonoBehaviour
 
         fade.Fade_in = true;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Train_Inside");
+        SceneManager.LoadScene("Train_Scene_1");
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -51,7 +50,7 @@ public class DoorFunction : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
         playerisatthedoor = false;
-        pressEUI.SetActive(false); 
+        pressEUI.SetActive(false);
     }
 
 
