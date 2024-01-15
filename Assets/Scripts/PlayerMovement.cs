@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal") * speed;
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && canHide)
         {
             if (canHide)
             {
