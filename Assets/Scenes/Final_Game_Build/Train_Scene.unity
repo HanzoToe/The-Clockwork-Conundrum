@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: jump
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7986378285823419258, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8928579492754765760, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
       propertyPath: PressQUI
       value: 
