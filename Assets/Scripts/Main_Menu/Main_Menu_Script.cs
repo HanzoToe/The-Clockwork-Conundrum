@@ -40,7 +40,7 @@ public class Main_Menu_Script : MonoBehaviour
                 if (myUIGroup.alpha == 0)
                 {
                     fadeOut = false;
-                    SceneManager.LoadScene("Test_Level");
+                    SceneManager.LoadScene("Phone_Test");
                 }
             }
         }
