@@ -30,16 +30,12 @@ public class Door_Train_Inside : MonoBehaviour
 
     public IEnumerator _door()
     {
-        PlayerPrefs.SetFloat("PlayerPositionX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", player.transform.position.y);
-        PlayerPrefs.Save();
 
         yield return new WaitForSeconds(timebeforenextscene);
 
-        player.SetActive(false);
         fade.Fade_in = true;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Train_Scene");
+        SceneManager.LoadScene("Train_Scene_1");
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +52,9 @@ public class Door_Train_Inside : MonoBehaviour
         playerisatthedoor = false;
         pressEUI.SetActive(false);
     }
+
+
+
 
 
 }

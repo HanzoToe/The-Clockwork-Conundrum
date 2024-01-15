@@ -1,22 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pull_Box_Script : MonoBehaviour
 {
-
     private bool canPull = false;
     private GameObject boxToPull;
     public Transform pullPoint;
     public Transform boundaryPoint;
     public GameObject PressQUI;
 
+    private void Start()
+    {
+        // Initial setup to find UI GameObject
+        FindUIElement();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // Check for UI GameObject in case it changes scenes
+        FindUIElement();
+
+        pullPoint = GameObject.FindGameObjectWithTag("BoxBoundry").transform;
+        boundaryPoint = GameObject.FindGameObjectWithTag("BoxBoundry").transform;
+
         if (canPull && Input.GetKey(KeyCode.Q))
         {
             PullBox();
+        }
+    }
+
+    private void FindUIElement()
+    {
+        // Find the Canvas GameObject in the currently active scene
+        Canvas canvas = FindObjectOfType<Canvas>();
+
+        if (canvas != null)
+        {
+            // Assuming your UI GameObject is a direct child of the Canvas
+            Transform uiElementTransform = canvas.transform.Find("PressQUI");
+
+            if (uiElementTransform != null)
+            {
+                PressQUI = uiElementTransform.gameObject;
+                Debug.Log("UI Element found!");
+                // You can activate it here if needed
+                // PressQUI.SetActive(true);
+            }
+            else
+            {
+                Debug.LogError("UI Element not found. Check the name or tag.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Canvas not found.");
         }
     }
 
@@ -24,7 +64,11 @@ public class Pull_Box_Script : MonoBehaviour
     {
         if (collision.collider.CompareTag("Box"))
         {
-            PressQUI.SetActive(true);
+            if (PressQUI != null)
+            {
+                PressQUI.SetActive(true);
+            }
+
             canPull = true;
             boxToPull = collision.gameObject;
             Debug.Log("Can pull");
@@ -35,7 +79,11 @@ public class Pull_Box_Script : MonoBehaviour
     {
         if (collision.collider.CompareTag("Box"))
         {
-            PressQUI.SetActive(false);
+            if (PressQUI != null)
+            {
+                PressQUI.SetActive(false);
+            }
+
             canPull = false;
             boxToPull = null;
             Debug.Log("Can't pull");
@@ -67,7 +115,11 @@ public class Pull_Box_Script : MonoBehaviour
                 boxRigidbody.velocity = Vector2.zero; // Set velocity to zero to freeze the box
                 boxRigidbody.isKinematic = true; // Set isKinematic to true to prevent further physics interactions
             }
-            PressQUI.SetActive(false);
+
+            if (PressQUI != null)
+            {
+                PressQUI.SetActive(false);
+            }
         }
     }
 }

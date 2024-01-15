@@ -45,19 +45,10 @@ public class EnemyController_Stationary : MonoBehaviour
                 {
                     // Player is spotted
                     playerSpotted = true;
-                    DisablePlayerMovement();
                     RestartScene();
                 }
             }
         }
-    }
-
-    private void DisablePlayerMovement()
-    {
-        // Disable the player's movement script or controller here
-        // For example, if you have a PlayerMovement script, you can do:
-        // player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<PlayerMovement>().enabled = false; 
     }
 
     private void RestartScene()

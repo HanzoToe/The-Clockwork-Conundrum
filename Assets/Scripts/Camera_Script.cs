@@ -19,7 +19,7 @@ public class Camera_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player").transform; 
     }
 
     private void LateUpdate()

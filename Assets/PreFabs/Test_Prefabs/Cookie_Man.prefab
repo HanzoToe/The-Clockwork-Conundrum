@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 8874312511683737115}
   - component: {fileID: 7192333330729799515}
   - component: {fileID: 8928579492754765760}
-  m_Layer: 0
+  - component: {fileID: 5959871076888186604}
+  - component: {fileID: 4724460337632188137}
+  m_Layer: 8
   m_Name: Cookie_Man
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5669985544476512300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.75, y: -5.05, z: 0}
+  m_LocalPosition: {x: 7.03, y: -2.51, z: 0}
   m_LocalScale: {x: 2.715625, y: 3.290186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jump: 5
+  jump: 9
   rb: {fileID: 0}
   canHide: 0
   hiding: 0
@@ -191,3 +193,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullPoint: {fileID: 0}
   boundaryPoint: {fileID: 0}
+  PressQUI: {fileID: 0}
+--- !u!114 &5959871076888186604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669985544476512300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb8e16e6ff0af84ab8474f6f01b2dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4724460337632188137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669985544476512300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2451582e824dcd4448617bc9f97a7050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

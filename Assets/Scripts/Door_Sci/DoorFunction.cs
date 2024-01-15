@@ -31,11 +31,9 @@ public class DoorFunction : MonoBehaviour
 
     public IEnumerator _door()
     {
-        SavePosition();
 
         yield return new WaitForSeconds(timebeforenextscene);
 
-        player.SetActive(false);
         fade.Fade_in = true;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Train_Inside");
@@ -56,12 +54,7 @@ public class DoorFunction : MonoBehaviour
         pressEUI.SetActive(false); 
     }
 
-    public void SavePosition()
-    {
-        PlayerPrefs.SetFloat("PlayerPositionX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", player.transform.position.y);
-        PlayerPrefs.Save();
-    }
+
 
 
 

@@ -8,6 +8,8 @@ TagManager:
   - Cover
   - Box
   - BoxBoundry
+  - Pickup
+  - QUI
   layers:
   - Default
   - TransparentFX
