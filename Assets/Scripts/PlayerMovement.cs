@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public bool canHide = false;
     public bool hiding = false;
 
+    bool facingright = true; 
+    public Animator animator; 
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -55,8 +58,23 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
         movement = Input.GetAxisRaw("Horizontal");
-
+        animator.SetFloat("IsWalking", Mathf.Abs(movement));
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
+
+        if (movement > 0 && facingright)
+        {
+            Flip();
+        }
+        else if (movement < 0 && !facingright)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingright = !facingright;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     private void HandleJump()
