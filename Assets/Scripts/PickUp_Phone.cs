@@ -24,7 +24,7 @@ public class PickUp_Phone : MonoBehaviour
             animator.SetBool("PickUp", true);
             dialogueScript.gameObject.SetActive(true);
             dialogueScript.StartDialogue();
-            dialogueStarted = true;
+            dialogueStarted = true; 
         }
     }
 }
