@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 
                 Physics2D.IgnoreLayerCollision(8, 9, true);
-                rend.sortingOrder = 0;
+                rend.sortingOrder = -1;
                 hiding = true;
             }
         }
