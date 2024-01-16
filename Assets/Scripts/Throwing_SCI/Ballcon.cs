@@ -122,12 +122,10 @@ public class Ballcon : MonoBehaviour
             Destroy(gameObject);
 
             BallOnTheMove = false;
-<<<<<<< Updated upstream
 
             playerMovement.enabled = true;
-=======
             Playerboll.freezeplayer = false; 
->>>>>>> Stashed changes
+
         }
     } 
 }
