@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4916827449395329500, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5324112656486060574, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_Constraints
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 562645064}
   m_Layer: 0
   m_Name: Invisible wall (1)
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,7 +701,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.0569394, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -712,7 +712,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.1138787, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &580987529
 GameObject:
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 580987531}
   m_Layer: 0
   m_Name: Invisible wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,7 +778,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.6045327, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -789,7 +789,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.2090654, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &620379897
 GameObject:
@@ -1640,7 +1640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4916827449395329500, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5324112656486060574, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_Constraints
@@ -1682,7 +1682,7 @@ GameObject:
   - component: {fileID: 1855008500}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1734,7 +1734,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.6474719}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1745,7 +1745,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 4.294944}
   m_EdgeRadius: 0
 --- !u!1001 &2226198336158618518
 PrefabInstance:
@@ -1765,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 5669985544476512300, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
     - target: {fileID: 4581266473857014162, guid: 4cf0fb66b932adc4a9743cffc3033146, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.03
+      value: 15.12
       objectReference: {fileID: 0}
     - target: {fileID: 4581266473857014162, guid: 4cf0fb66b932adc4a9743cffc3033146, type: 3}
       propertyPath: m_LocalPosition.y

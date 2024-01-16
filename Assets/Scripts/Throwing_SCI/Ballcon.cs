@@ -10,12 +10,11 @@ public class Ballcon : MonoBehaviour
 
     public float power = 10f;
 
-
+    public GameObject player; 
     Rigidbody2D rb;
-
     LineRenderer lr;
 
-    bool BallOnTheMove = false;
+   public static bool BallOnTheMove = false;
 
     Vector2 DragStartPos;
 
@@ -30,6 +29,8 @@ public class Ballcon : MonoBehaviour
 
     private void Update()
     {
+
+
         if (BallOnTheMove == false)
         {
             if (Input.GetMouseButtonDown(0))
@@ -112,7 +113,7 @@ public class Ballcon : MonoBehaviour
 
 
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ground") || collision.CompareTag("wall"))
@@ -121,8 +122,12 @@ public class Ballcon : MonoBehaviour
             Destroy(gameObject);
 
             BallOnTheMove = false;
+<<<<<<< Updated upstream
 
             playerMovement.enabled = true;
+=======
+            Playerboll.freezeplayer = false; 
+>>>>>>> Stashed changes
         }
     } 
 }

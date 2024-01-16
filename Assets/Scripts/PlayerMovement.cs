@@ -20,12 +20,19 @@ public class PlayerMovement : MonoBehaviour
     bool facingright = true; 
     public Animator animator;
 
+    float OriginalSpeed;
+    float OriginalJump;
+
+
+
 
     // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        OriginalSpeed = speed;
+        OriginalJump = jump; 
 
     }
 
@@ -34,6 +41,19 @@ public class PlayerMovement : MonoBehaviour
     {
         CanHide();
         HandleJump();
+
+        if (Playerboll.freezeplayer)
+        {
+            speed = 0f;
+            jump = 0f;
+            animator.SetFloat("IsWalking", -1f);
+        }
+        else
+        {
+            speed = OriginalSpeed;
+            jump = OriginalJump; 
+        }
+        
     }
 
     private void FixedUpdate()
