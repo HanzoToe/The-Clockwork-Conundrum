@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Door_Train_Inside : MonoBehaviour
 {
+    //Hi
+
     FadeInOut fade;
     public GameObject pressEUI;
     public GameObject player;
