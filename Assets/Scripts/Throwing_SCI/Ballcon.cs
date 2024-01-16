@@ -19,10 +19,13 @@ public class Ballcon : MonoBehaviour
 
     Vector2 DragStartPos;
 
+    public PlayerMovement playerMovement;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -33,6 +36,8 @@ public class Ballcon : MonoBehaviour
             {
                 DragStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 rb.gravityScale = 0;
+
+                playerMovement.enabled = false;
 
             }
 
@@ -116,6 +121,8 @@ public class Ballcon : MonoBehaviour
             Destroy(gameObject);
 
             BallOnTheMove = false;
+
+            playerMovement.enabled = true;
         }
     } 
 }

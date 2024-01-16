@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     public float speed = 5f;
     private float movement;
     public float jump = 2f;
@@ -62,13 +64,16 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("IsWalking", Mathf.Abs(movement));
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
 
-        if (movement > 0 && facingright)
+        if (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl))
         {
-            Flip();
-        }
-        else if (movement < 0 && !facingright)
-        {
-            Flip();
+            if (movement > 0 && facingright)
+            {
+                Flip();
+            }
+            else if (movement < 0 && !facingright)
+            {
+                Flip();
+            }
         }
     }
 
