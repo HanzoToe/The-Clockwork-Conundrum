@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final_Game_Build/Phone_Test.unity
     guid: 89651836369bdac45ab4d345eef3fd8b
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Dead_Body.unity
+    guid: 4e6d51c31c7ed104fae36dc556544160
   m_configObjects: {}
