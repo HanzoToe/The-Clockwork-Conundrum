@@ -50,13 +50,9 @@ public class DoorFunction : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player")
-        {
+        
             playerisatthedoor = false;
             pressEUI.SetActive(false);
-        }
-        
-        
     }
 
 
