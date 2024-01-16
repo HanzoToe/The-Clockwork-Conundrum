@@ -15,6 +15,7 @@ public class Ballcon : MonoBehaviour
 
     LineRenderer lr;
 
+    bool BallOnTheMove = false;
 
     Vector2 DragStartPos;
 
@@ -26,47 +27,50 @@ public class Ballcon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (BallOnTheMove == false)
         {
-            DragStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            rb.gravityScale = 0;
-
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 _velocity = (DragEndPos - DragStartPos) * power;
-
-            Vector2[] trajectory = Plot(rb, (Vector2)transform.position, _velocity, 500);
-
-            lr.positionCount = trajectory.Length;
-
-
-            Vector3[] positions = new Vector3[trajectory.Length];
-            for (int i = 0; i < trajectory.Length; i++)
+            if (Input.GetMouseButtonDown(0))
             {
-                positions[i] = trajectory[i];
+                DragStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                rb.gravityScale = 0;
+
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 _velocity = (DragEndPos - DragStartPos) * power;
+
+                Vector2[] trajectory = Plot(rb, (Vector2)transform.position, _velocity, 500);
+
+                lr.positionCount = trajectory.Length;
+
+
+                Vector3[] positions = new Vector3[trajectory.Length];
+                for (int i = 0; i < trajectory.Length; i++)
+                {
+                    positions[i] = trajectory[i];
+
+
+
+                }
+                lr.SetPositions(positions);
+
 
 
 
             }
-            lr.SetPositions(positions);
 
+            if (Input.GetMouseButtonUp(0))
+            {
+                Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 _velocity = (DragEndPos - DragStartPos) * power;
 
+                rb.velocity = _velocity;
+                rb.gravityScale = 3;
 
-
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 _velocity = (DragEndPos - DragStartPos) * power;
-
-            rb.velocity = _velocity;
-            rb.gravityScale = 3;
-
-            
+                BallOnTheMove = true;
+            }
         }
 
 
@@ -110,6 +114,8 @@ public class Ballcon : MonoBehaviour
         {
             new WaitForSeconds(2);
             Destroy(gameObject);
+
+            BallOnTheMove = false;
         }
     }
 }
