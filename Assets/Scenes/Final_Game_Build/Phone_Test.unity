@@ -456,11 +456,11 @@ MonoBehaviour:
   textcomponent: {fileID: 1318847362}
   textspeed: 0.1
   lines:
-  - "Anders: God morgon! En kvinna s\xE5g en man b\xE4ra p\xE5 ett vapen vid t\xE5gstationen
-    ig\xE5r kv\xE4ll."
-  - "Det \xE4r s\xE4kert inget alvarligt men med tanke p\xE5 allt som h\xE4nder borde
-    du nog ta en titt f\xF6r s\xE4kerhets skull."
-  - "Jag har massa pappers arbete att g\xE5 igenom s\xE5 du f\xE5r \xE5ka dit sj\xE4lv. "
+  - "Anders: God morgon! Jag har h\xF6rt att en kvinna s\xE5g en man b\xE4ra p\xE5
+    ett vapen vid t\xE5gstationen ig\xE5r kv\xE4ll."
+  - "Det \xE4r s\xE4kert inget allvarligt, men med tanke p\xE5 allt som h\xE4nt nyligen
+    borde du nog ta en titt f\xF6r s\xE4kerhets skull."
+  - "Jag har massa pappers arbete att g\xE5 igenom, s\xE5 du f\xE5r \xE5ka dit sj\xE4lv. "
   canvasGroup: {fileID: 810778336}
 --- !u!114 &322529155
 MonoBehaviour:
