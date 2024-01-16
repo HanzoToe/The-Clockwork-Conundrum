@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Ballcon : MonoBehaviour
 {
 
     
@@ -104,15 +104,12 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("ground"))
+        if (collision.CompareTag("ground"))
         {
             new WaitForSeconds(2);
             Destroy(gameObject);
         }
-  
-
-
     }
 }

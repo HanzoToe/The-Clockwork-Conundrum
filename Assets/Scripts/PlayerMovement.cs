@@ -16,13 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public bool hiding = false;
 
     bool facingright = true; 
-    public Animator animator; 
+    public Animator animator;
+
 
     // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -112,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canHide)
             {
+                
                 Physics2D.IgnoreLayerCollision(8, 9, true);
                 rend.sortingOrder = 0;
                 hiding = true;
