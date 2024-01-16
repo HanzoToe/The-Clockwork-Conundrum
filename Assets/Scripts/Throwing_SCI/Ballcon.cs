@@ -110,12 +110,12 @@ public class Ballcon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ground"))
+        if (collision.CompareTag("ground") || collision.CompareTag("wall"))
         {
             new WaitForSeconds(2);
             Destroy(gameObject);
 
             BallOnTheMove = false;
         }
-    }
+    } 
 }

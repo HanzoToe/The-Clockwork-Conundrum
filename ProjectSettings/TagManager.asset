@@ -13,6 +13,7 @@ TagManager:
   - DoorCollider
   - Ball
   - Enemy
+  - wall
   layers:
   - Default
   - TransparentFX
