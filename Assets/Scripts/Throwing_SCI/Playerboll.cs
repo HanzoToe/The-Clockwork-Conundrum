@@ -20,6 +20,7 @@ public class Playerboll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!PauseScript.isPaused) { 
         cooldown -= Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0) && cooldown < 0)
@@ -33,5 +34,6 @@ public class Playerboll : MonoBehaviour
         }
 
 
+    }
     }
 }
