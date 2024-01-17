@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: detectionRadius
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2828,7 +2828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: detectionRadius
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

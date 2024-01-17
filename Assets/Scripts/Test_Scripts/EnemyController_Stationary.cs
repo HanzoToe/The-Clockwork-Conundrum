@@ -5,37 +5,57 @@ using UnityEngine.SceneManagement;
 
 public class EnemyController_Stationary : MonoBehaviour
 {
-   
-    //Darren 
     public float detectionRadius = 5f;
     public float movementSpeed = 2f;
     public float hearingRange = 10f;
     public LayerMask playerLayer;
 
     private Transform player;
+    private bool playerSpotted;
     private Vector3 ballDestroyedPosition;
+    private bool ballLandedInRange;
+
+    private bool reachedBallPosition = false;
+    private PlayerMovement playermovement; // Add reference to PlayerMovement script
+    public static bool BallOnTheMove = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playermovement = player.GetComponent<PlayerMovement>(); // Get reference to PlayerMovement script
     }
 
     private void Update()
     {
-        //Grab the distance of the playe from the enemy
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         // Check if the player is within the detection radius
         if (distanceToPlayer <= detectionRadius)
         {
-            // Invoke the restart method
-            RestartScene();
+            // Spot the player
+            SpotPlayer();
         }
 
-        // If the ball is in hearing range and moving
-        if (distanceToPlayer <= hearingRange && Ballcon.BallOnTheMove)
+        // If the ball has landed within the hearing range
+        if (ballLandedInRange)
         {
             MoveTowardsBallDestroyedPosition();
+        }
+    }
+
+    private void SpotPlayer()
+    {
+        if (playermovement != null && playermovement.hiding)
+        {
+            return; // Don't spot the player if hiding
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            // Player is spotted
+            playerSpotted = true;
+            RestartScene();
         }
     }
 
@@ -47,15 +67,33 @@ public class EnemyController_Stationary : MonoBehaviour
 
     private void MoveTowardsBallDestroyedPosition()
     {
-        //As the method name says lol
-        if (ballDestroyedPosition != Vector3.zero)
+        if (ballDestroyedPosition != Vector3.zero && !reachedBallPosition)
         {
             Vector2 direction = (ballDestroyedPosition - transform.position).normalized;
-            transform.Translate(direction * movementSpeed * Time.deltaTime);
+
+            // Introduce a stopping distance
+            float stoppingDistance = 1.0f;
+            float distanceToBall = Vector2.Distance(transform.position, ballDestroyedPosition);
+
+            // Set a maximum speed
+            float maxSpeed = 5.0f;
+
+            if (distanceToBall > stoppingDistance)
+            {
+                // Apply speed based on distance
+                float speed = Mathf.Min(movementSpeed, maxSpeed);
+                transform.Translate(direction * speed * Time.deltaTime);
+            }
+            else
+            {
+                // If the enemy is close enough to the ball, stop moving and set the flag
+                reachedBallPosition = true;
+            }
         }
     }
 
-    private void OnDrawGizmosSelected()
+
+private void OnDrawGizmosSelected()
     {
         // Draw both detection radius and hearing range as wire spheres in the scene view
         Gizmos.color = Color.yellow;
@@ -65,9 +103,18 @@ public class EnemyController_Stationary : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, hearingRange);
     }
 
-    //Set the ball destroyed position
+    // Added method to set the ball destroyed position
     public void SetBallDestroyedPosition(Vector3 position)
     {
         ballDestroyedPosition = position;
+        reachedBallPosition = false; // Reset the flag when a new ball is thrown
+        BallOnTheMove = true; // Set the flag to indicate the ball is on the move
+
+        // Check if the ball has landed within the hearing range
+        float distanceToBall = Vector2.Distance(transform.position, ballDestroyedPosition);
+        if (distanceToBall <= hearingRange)
+        {
+            ballLandedInRange = true;
+        }
     }
 }
