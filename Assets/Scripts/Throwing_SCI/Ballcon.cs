@@ -124,8 +124,22 @@ public class Ballcon : MonoBehaviour
             BallOnTheMove = false;
 
             playerMovement.enabled = true;
-            Playerboll.freezeplayer = false; 
+            Playerboll.freezeplayer = false;
 
+            if (collision.CompareTag("ground"))
+            {
+                // Store the ball's destroyed position in enemies
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    EnemyController_Stationary enemyController = enemy.GetComponent<EnemyController_Stationary>();
+                    if (enemyController != null)
+                    {
+                        enemyController.SetBallDestroyedPosition(transform.position);
+                    }
+                }
+            }
+          
         }
     } 
 }

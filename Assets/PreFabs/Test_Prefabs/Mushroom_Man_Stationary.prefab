@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8097159271330067111}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 656218786577808936}
   - component: {fileID: 5324112656486060574}
   - component: {fileID: 7032309897630446515}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mushroom_Man_Stationary
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -204,8 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 4
+  movementSpeed: 20
   hearingRange: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
   playermovement: {fileID: 0}
+  rb: {fileID: 0}

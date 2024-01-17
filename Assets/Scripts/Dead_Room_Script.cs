@@ -13,6 +13,7 @@ public class Dead_Room_Script : MonoBehaviour
     public GameObject door;
     public float timebeforenextscene;
     public bool playerisatthedoor;
+    public GameObject missingkey;
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +48,17 @@ public class Dead_Room_Script : MonoBehaviour
             playerisatthedoor = true;
             pressEUI.SetActive(true);
         }
+        else if(collision.gameObject.tag == "Player" && !PickupObject.KeyPickedUp)
+        {
+            missingkey.SetActive(true);
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         playerisatthedoor = false;
         pressEUI.SetActive(false);
+        missingkey.SetActive(false);
     }
 
 
