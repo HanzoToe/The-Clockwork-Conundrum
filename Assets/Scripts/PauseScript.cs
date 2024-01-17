@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +10,13 @@ public class PauseScript : MonoBehaviour
 {
     public GameObject pausemenu;
     public static bool isPaused;
+    public GameObject player; 
 
 
     void Start()
     {
         pausemenu.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player"); 
     }
     private void Update()
     {
@@ -45,6 +48,7 @@ public class PauseScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main_Menu");
+        Destroy(player);
     }
     public void QuitGame()
     {

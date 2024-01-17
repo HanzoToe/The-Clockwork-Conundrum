@@ -203,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d07e631f8dc5214cbee2e4ce20e2ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 4
-  movementSpeed: 20
+  detectionRadius: 5
+  movementSpeed: 8
   hearingRange: 10
   playerLayer:
     serializedVersion: 2
