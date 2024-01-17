@@ -1,30 +1,53 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseScript : MonoBehaviour
-    
 
- 
+public class PauseScript : MonoBehaviour
 {
-    [SerializeField] GameObject PauseMenu;
-    public void Pause()
+    public GameObject pausemenu;
+    public static bool isPaused;
+
+
+    void Start()
     {
-        PauseMenu.SetActive(true);
+        pausemenu.SetActive(false);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+    public void PauseGame()
+    {
+        pausemenu.SetActive(true);
         Time.timeScale = 0f;
-        //Timescale 0 betyder att spelet är pausat
+        isPaused = true;
     }
-    public void Resume()
+    public void ResumeGame()
     {
-        PauseMenu.SetActive(false);
+        pausemenu.SetActive(false);
         Time.timeScale = 1f;
-        //Timescale 1 betyder att spelet kör i standard hastighet
+        isPaused = false;
     }
-    public void Return()
+    public void MainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main_Menu");
     }
-    
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
