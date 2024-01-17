@@ -10,7 +10,7 @@ public class EnemyDialogue : MonoBehaviour
     public float textspeed;
     public string[] lines;
     private int index;
-
+    public float nextline; 
     bool IsShowingMessage = true;
 
 
@@ -61,7 +61,7 @@ public class EnemyDialogue : MonoBehaviour
             
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(nextline);
         
         IsShowingMessage = false;
     }
