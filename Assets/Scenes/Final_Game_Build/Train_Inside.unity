@@ -353,9 +353,9 @@ MonoBehaviour:
   textcomponent: {fileID: 1999163433}
   textspeed: 0.1
   lines:
-  - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - Gogo gagga!!! Sten = Berg!
   - Nyckel Vart?
-  - "Ute bakom l\xE5dor ja!!!!"
+  - "Ute bakom l\xE5dor, ja!!!!"
 --- !u!1 &248073854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4916827449395329500, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
