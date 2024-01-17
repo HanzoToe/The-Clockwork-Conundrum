@@ -372,8 +372,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 558488839055009538, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3887501
+      objectReference: {fileID: 0}
+    - target: {fileID: 558488839055009538, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.3512499
       objectReference: {fileID: 0}
     - target: {fileID: 558488839055009538, guid: 28b974b4dbfc6614894b344516c2276a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1478,7 +1482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22aa47c59feaab4ea5c33d6edcea14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 417466644}
 --- !u!1 &1019199142
 GameObject:
   m_ObjectHideFlags: 0
