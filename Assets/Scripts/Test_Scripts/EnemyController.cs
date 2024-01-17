@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     public PlayerMovement playermovement; 
 
 
-
+    //Darren
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checks if player is hiding
         if (playermovement.hiding)
         {
             isChasingPlayer = false;
@@ -42,7 +43,7 @@ public class EnemyController : MonoBehaviour
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolpoints.Length; // Update current patrol index
         }
 
-
+        //Basically kills the player
         if (isChasingPlayer)
         {
             Vector2 direction = (player.position - transform.position).normalized;
@@ -60,6 +61,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            //Forces the enemy to go back and forth in between two control points. 
             Transform currentPatrolPoint = patrolpoints[currentPatrolIndex];
             Vector2 direction = (currentPatrolPoint.position - transform.position).normalized;
             rb.velocity = direction * movespeed;

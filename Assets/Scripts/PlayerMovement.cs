@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         CanHide();
         HandleJump();
 
+        //Freeze the player if rock is spawned
         if (Playerboll.freezeplayer)
         {
             speed = 0f;
@@ -80,10 +81,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        //Allows player to move
         movement = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("IsWalking", Mathf.Abs(movement));
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
 
+        //Disables Flip and enables moonwalking lol. 
         if (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl))
         {
             if (movement > 0 && facingright)
@@ -99,12 +102,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        //Changes where the player is facing
         facingright = !facingright;
         transform.Rotate(0f, 180f, 0f);
     }
 
     private void HandleJump()
     {
+        //Allows the player to jump
         if (Input.GetButtonDown("Jump") && isgrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jump); 
@@ -135,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal") * speed;
 
+        //If the player holds down the button 'f' then they can hide
         if (Input.GetKey(KeyCode.F) && canHide)
         {
             if (canHide)

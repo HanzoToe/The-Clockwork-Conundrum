@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Pull_Box_Script : MonoBehaviour
 {
+    //Darren
+
     private bool canPull = false;
     private GameObject boxToPull;
     public Transform pullPoint;
@@ -25,7 +27,8 @@ public class Pull_Box_Script : MonoBehaviour
 
         pullPoint = GameObject.FindGameObjectWithTag("BoxBoundry").transform;
         boundaryPoint = GameObject.FindGameObjectWithTag("BoxBoundry").transform;
-
+         
+        //Allows the box to be pulled
         if (canPull && Input.GetKey(KeyCode.Q))
         {
             PullBox();
