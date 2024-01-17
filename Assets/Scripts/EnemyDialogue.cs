@@ -41,6 +41,11 @@ public class EnemyDialogue : MonoBehaviour
                 textcomponent.text = lines[index];
             }
         }
+
+        if (PickupObject.KeyPickedUp )
+        {
+            textcomponent.enabled = false; 
+        }
     }
 
     public void StartDialogue()
