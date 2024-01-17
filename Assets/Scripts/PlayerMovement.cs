@@ -32,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         OriginalSpeed = speed;
-        OriginalJump = jump; 
-
+        OriginalJump = jump;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
