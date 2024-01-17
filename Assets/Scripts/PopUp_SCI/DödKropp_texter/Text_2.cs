@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Text_1 : MonoBehaviour
+public class Text_2 : MonoBehaviour
 {
-    public GameObject PopUp_1;
+    public GameObject PopUp_2;
     bool PlayerOnBody = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +18,12 @@ public class Text_1 : MonoBehaviour
     {
         if (PlayerOnBody == true)
         {
-            PopUp_1.SetActive(false);
+            PopUp_2.SetActive(true);
         }
 
         if (PlayerOnBody == false)
         {
-            PopUp_1.SetActive(true);
+            PopUp_2.SetActive(false);
         }
     }
 
