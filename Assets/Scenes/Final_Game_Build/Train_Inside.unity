@@ -351,11 +351,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textcomponent: {fileID: 1999163433}
-  textspeed: 0.1
+  textspeed: 0.08
   lines:
-  - Gogo gagga!!! Sten = Berg!
-  - Nyckel Vart?
-  - "Ute bakom l\xE5dor, ja!!!!"
+  - " IDIOT!!! VART FAN \xC4R NYCKJ\xC4VELN????"
+  - "Jag kastade ut den p\xE5 perrongen."
+  - "DIN DUMMA J\xC4VEL VARF..... du orkar inte lyssna mer "
+  nextline: 0.06
 --- !u!1 &248073854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4916827449395329500, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
@@ -2054,7 +2055,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2087,7 +2088,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
