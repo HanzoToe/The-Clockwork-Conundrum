@@ -4,8 +4,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+
 public class EnemyController_Stationary : MonoBehaviour
+
 {
+
+
     public float detectionRadius = 5f;
     public float movementSpeed = 2f; // Added movement speed
     public float hearingRange = 10f; // Added hearing range
@@ -77,16 +85,18 @@ public class EnemyController_Stationary : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Draw both detection radius and hearing range as wire spheres in the scene view
-        Handles.color = Color.yellow;
+#if UNITY_EDITOR
+    // Draw both detection radius and hearing range as wire spheres in the scene view
+    Handles.color = Color.yellow;
         Handles.DrawWireDisc(transform.position, Vector3.forward, detectionRadius);
 
         Handles.color = Color.green;
         Handles.DrawWireDisc(transform.position, Vector3.forward, hearingRange);
-    }
+#endif
+}
 
-    // Added method to set the ball destroyed position
-    public void SetBallDestroyedPosition(Vector3 position)
+// Added method to set the ball destroyed position
+public void SetBallDestroyedPosition(Vector3 position)
     {
         ballDestroyedPosition = position;
     }
