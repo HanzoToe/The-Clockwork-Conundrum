@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyDialogue : MonoBehaviour
 {
 
+    // Daniel Antunes Goncalves
+    
     public TextMeshProUGUI textcomponent;
     public float textspeed;
     public string[] lines;
@@ -81,6 +83,6 @@ public class EnemyDialogue : MonoBehaviour
         }
     }
 
-    // Googa gaagga
+    
 
 }

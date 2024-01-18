@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FadeInOut : MonoBehaviour
 {
+    // Daniel Antunes Goncalves
+    
     public CanvasGroup CanvasGroup;
 
     public bool Fade_in = false;
