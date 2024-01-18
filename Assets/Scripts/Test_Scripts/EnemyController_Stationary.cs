@@ -45,6 +45,7 @@ public class EnemyController_Stationary : MonoBehaviour
         {
             MoveTowardsBallDestroyedPosition();
         }
+
     }
 
     private void SpotPlayer()
@@ -97,9 +98,12 @@ public class EnemyController_Stationary : MonoBehaviour
             {
                 // If the enemy is close enough to the ball, stop moving and set the flag
                 reachedBallPosition = true;
+              
 
                 // Set velocity to zero to stop the movement
                 rb.velocity = Vector2.zero;
+
+                animator.SetTrigger("StopWalkingTrigger"); 
             }
         }
     }
