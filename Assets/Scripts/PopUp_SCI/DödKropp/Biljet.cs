@@ -9,16 +9,21 @@ public class Biljet : MonoBehaviour
 
     PlayerMovement PM;
 
+    public DK_Dialogue dialogueScript;
+
     public static bool FreezePlayer = false;
-    public static bool CancelScript = false;
+    bool BeginDialogue = false;
     
     public GameObject biljet;
     bool PlayerOnBody = false;
-    
+
+    private bool dialogueStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>(); 
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        dialogueScript.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,11 +35,14 @@ public class Biljet : MonoBehaviour
 
             FreezePlayer = true;
 
+            BeginDialogue = true;
         }
 
-        if (CancelScript == true)
+        if (BeginDialogue == true && dialogueStarted != true)
         {
-            PM.enabled = false;
+            dialogueScript.gameObject.SetActive(true);
+            dialogueScript.StartDialogue();
+            dialogueStarted = true;
         }
 
 
