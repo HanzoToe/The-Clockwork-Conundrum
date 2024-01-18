@@ -8,9 +8,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
+    //Love
+
     public GameObject pausemenu;
     public static bool isPaused;
-    public GameObject player; 
+    public GameObject player;
+
 
 
     void Start()
