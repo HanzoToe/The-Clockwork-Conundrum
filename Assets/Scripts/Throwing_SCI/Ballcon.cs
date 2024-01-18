@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Ballcon : MonoBehaviour
 {
+
+    // görde av Shaharia Islam 
+
     public float power = 10f;
 
     public GameObject player;

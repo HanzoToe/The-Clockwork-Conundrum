@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Text_2 : MonoBehaviour
 {
+    // Daniel Antunes Goncalves
+    
     public GameObject PopUp_2;
     bool PlayerOnBody = false;
 

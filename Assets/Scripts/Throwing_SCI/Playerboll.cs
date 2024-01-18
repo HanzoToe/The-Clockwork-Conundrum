@@ -4,6 +4,8 @@ using UnityEngine;
 public class Playerboll : MonoBehaviour
 {
 
+    // görde av Shaharia Islam
+
     float cooldown = 0;
 
     [SerializeField]

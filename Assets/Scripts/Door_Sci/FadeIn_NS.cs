@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FadeIn_NextScene : MonoBehaviour
 {
+    // Daniel Antunes Goncalves
+    
     FadeInOut fade;
 
     // Start is called before the first frame update
