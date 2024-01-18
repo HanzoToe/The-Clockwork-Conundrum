@@ -20,6 +20,8 @@ public class EnemyController_Stationary : MonoBehaviour
     private bool reachedBallPosition = false;
     private PlayerMovement playermovement; // Add reference to PlayerMovement script
     public static bool BallOnTheMove = false;
+
+    public Animator animator; 
         
     private void Start()
     {
@@ -86,7 +88,8 @@ public class EnemyController_Stationary : MonoBehaviour
             {
                 // Apply speed based on distance
                 float speed = Mathf.Min(movementSpeed, maxSpeed);
-
+                animator.SetFloat("IsWalking", Mathf.Abs(movementSpeed));
+               
                 // Use Rigidbody2D for movement
                 rb.velocity = direction * speed;
             }
