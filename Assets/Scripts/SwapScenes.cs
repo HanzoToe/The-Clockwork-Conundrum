@@ -10,7 +10,7 @@ public class SwapScenes : MonoBehaviour
         
 
         if (SceneManager.GetActiveScene().name == "Train_Scene")
-            BGmusic.instance.GetComponent<AudioSource>().Stop();
+            BGmusic.instance.GetComponent<AudioSource>().Pause();
         
         //BGmusic.instance.GetComponent<AudioSource>().Play();
 
