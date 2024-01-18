@@ -89,7 +89,7 @@ public class EnemyController_Stationary : MonoBehaviour
             {
                 // Apply speed based on distance
                 float speed = Mathf.Min(movementSpeed, maxSpeed);
-                animator.SetFloat("IsWalking", Mathf.Abs(movementSpeed));
+                animator.SetFloat("IsWalking", Mathf.Abs(speed));
                
                 // Use Rigidbody2D for movement
                 rb.velocity = direction * speed;
@@ -103,7 +103,7 @@ public class EnemyController_Stationary : MonoBehaviour
                 // Set velocity to zero to stop the movement
                 rb.velocity = Vector2.zero;
 
-                animator.SetTrigger("StopWalkingTrigger"); 
+                animator.SetFloat("IsWalking", -1f);
             }
         }
     }
