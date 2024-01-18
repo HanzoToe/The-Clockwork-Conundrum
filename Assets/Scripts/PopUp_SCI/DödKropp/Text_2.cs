@@ -8,6 +8,7 @@ public class Text_2 : MonoBehaviour
     
     public GameObject PopUp_2;
     bool PlayerOnBody = false;
+    bool Biljet = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +19,23 @@ public class Text_2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerOnBody == true)
+        if (Biljet == false)
         {
-            PopUp_2.SetActive(true);
+            if (PlayerOnBody == true)
+            {
+                PopUp_2.SetActive(true);
+            }
         }
 
         if (PlayerOnBody == false)
         {
+            PopUp_2.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && PlayerOnBody == true)
+        {
+            Biljet = true;
+            
             PopUp_2.SetActive(false);
         }
     }

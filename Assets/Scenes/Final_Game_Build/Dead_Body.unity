@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 87101536}
   - component: {fileID: 87101535}
   - component: {fileID: 87101537}
+  - component: {fileID: 87101538}
   m_Layer: 0
   m_Name: "1d\xF6d kropp"
   m_TagString: Untagged
@@ -645,6 +646,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PopUp_2: {fileID: 167100698}
+--- !u!114 &87101538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87101532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a5e790853caed4a87c2f8c3ce9fb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biljet: {fileID: 69863918}
 --- !u!1 &167100698
 GameObject:
   m_ObjectHideFlags: 0
