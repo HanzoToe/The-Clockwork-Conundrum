@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 8928579492754765760}
   - component: {fileID: 4724460337632188137}
   - component: {fileID: 3556190313069478104}
-  - component: {fileID: 2835926309987542756}
   - component: {fileID: 1805754602688566506}
+  - component: {fileID: 2555635705437128108}
+  - component: {fileID: 4894271050319702893}
   m_Layer: 8
   m_Name: Cookie_Man
   m_TagString: Player
@@ -33,8 +34,8 @@ Transform:
   m_GameObject: {fileID: 5669985544476512300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.75, y: -5.05, z: 0}
-  m_LocalScale: {x: 1, y: 3.290186, z: 1}
+  m_LocalPosition: {x: 14.12, y: -3.12, z: 0}
+  m_LocalScale: {x: 1.2625, y: 1.4307169, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -195,10 +196,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03737104, y: 0}
-  m_Size: {x: 0.9286955, y: 2}
+  m_Offset: {x: 0.48689315, y: 0.16056861}
+  m_Size: {x: 1.2599211, y: 6.2809653}
   m_Direction: 0
---- !u!95 &2835926309987542756
+--- !u!114 &1805754602688566506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669985544476512300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b745f5bccd74b41a430b8775b7a6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 127493653106392048, guid: 1d865ad3e91d5e840801961bb26b72bd, type: 3}
+--- !u!95 &2555635705437128108
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -219,7 +233,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1805754602688566506
+--- !u!114 &4894271050319702893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +242,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5669985544476512300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b745f5bccd74b41a430b8775b7a6a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ca48f1a192352941be5728b7929c02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 127493653106392048, guid: 1d865ad3e91d5e840801961bb26b72bd, type: 3}

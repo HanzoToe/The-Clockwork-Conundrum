@@ -18,7 +18,7 @@ public class EnemyController_Stationary : MonoBehaviour
     private bool reachedBallPosition = false;
     private PlayerMovement playermovement; // Add reference to PlayerMovement script
     public static bool BallOnTheMove = false;
-
+        
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -78,16 +78,23 @@ public class EnemyController_Stationary : MonoBehaviour
             // Set a maximum speed
             float maxSpeed = 5.0f;
 
+            Rigidbody2D rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+
             if (distanceToBall > stoppingDistance)
             {
                 // Apply speed based on distance
                 float speed = Mathf.Min(movementSpeed, maxSpeed);
-                transform.Translate(direction * speed * Time.deltaTime);
+
+                // Use Rigidbody2D for movement
+                rb.velocity = direction * speed;
             }
             else
             {
                 // If the enemy is close enough to the ball, stop moving and set the flag
                 reachedBallPosition = true;
+
+                // Set velocity to zero to stop the movement
+                rb.velocity = Vector2.zero;
             }
         }
     }

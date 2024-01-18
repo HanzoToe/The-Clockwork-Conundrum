@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("ground"))
+        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Boxes"))
         {
             isgrounded = true;
         }
@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("ground"))
+        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Boxes"))
         {
             isgrounded = false; 
         }

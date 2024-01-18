@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1090320686064050867, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.51
+      value: -10.82793
       objectReference: {fileID: 0}
     - target: {fileID: 1090320686064050867, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_LocalPosition.y
@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: hearingRange
-      value: 20
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: movementSpeed
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.32264686, y: -0.02762103}
+  m_Offset: {x: -0.009188175, y: -0.02762103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4281735, y: 1.9447577}
+  m_Size: {x: 0.8012562, y: 1.9447577}
   m_EdgeRadius: 0
 --- !u!1 &113747388
 GameObject:
@@ -2760,7 +2760,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1090320686064050867, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.4820695
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: 1090320686064050867, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2816,7 +2816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: hearingRange
-      value: 22
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7032309897630446515, guid: 0ad3811ee3d723f4eb106d2944298342, type: 3}
       propertyPath: movementSpeed
