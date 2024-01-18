@@ -38,7 +38,7 @@ public class Biljet : MonoBehaviour
             BeginDialogue = true;
         }
 
-        if (BeginDialogue == true && dialogueStarted != true)
+        if (BeginDialogue == true && dialogueStarted == false)
         {
             dialogueScript.gameObject.SetActive(true);
             dialogueScript.StartDialogue();
