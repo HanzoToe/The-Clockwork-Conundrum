@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             jump = 0f;
             animator.SetFloat("IsWalking", -1f);
         }
-        else if (!Biljet.FreezePlayer)
+        else if (!Biljet.FreezePlayer && !Playerboll.freezeplayer)
         {
             speed = OriginalSpeed;
             jump = OriginalJump;
