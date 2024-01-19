@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Animations/Character_Animations/Enemy_Idle.anim.meta
 guid: bfd446e9e14811a409ad50fbabdec07d
-NativeFormatImporter:
-========
-guid: 1d5fecc57d556294d9e4992c77cf8177
 PrefabImporter:
->>>>>>>> 2db651542afafa39949adeea28d4df3a06b452fa:Assets/PreFabs/Test_Prefabs/Cookie_Man 1.prefab.meta
   externalObjects: {}
-  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

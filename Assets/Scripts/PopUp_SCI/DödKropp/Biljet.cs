@@ -19,6 +19,8 @@ public class Biljet : MonoBehaviour
 
     private bool dialogueStarted = false;
 
+    public GameObject dialoguebox; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,5 +64,7 @@ public class Biljet : MonoBehaviour
         {
             PlayerOnBody = false;
         }
+
+
     }
 }

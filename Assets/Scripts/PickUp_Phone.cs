@@ -15,18 +15,16 @@ public class PickUp_Phone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator.SetBool("PickUp", true);
         dialogueScript.gameObject.SetActive(false);
+        dialogueScript.gameObject.SetActive(true);
+        dialogueScript.StartDialogue();
+        dialogueStarted = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !dialogueStarted)
-        {
-            animator.SetBool("PickUp", true);
-            dialogueScript.gameObject.SetActive(true);
-            dialogueScript.StartDialogue();
-            dialogueStarted = true; 
-        }
+       
     }
 }

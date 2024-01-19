@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final_Game_Build/Dead_Body.unity
     guid: 4e6d51c31c7ed104fae36dc556544160
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Office.unity
+    guid: c427aa9892f86f644ba55b6051948568
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Car_Moving.unity
+    guid: 0936478e3145e5241b4be04fbd58ea01
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Factory_Front.unity
+    guid: 8648d7d1ca35b1945a0ef90cba87ad59
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Factory_Back.unity
+    guid: 961d1f8f7e3f68146b22841aaf9b283f
   m_configObjects: {}

@@ -132,20 +132,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+ private void OnCollisionEnter2D(Collision2D collision)
+{
+    if (IsGroundCollision(collision) || IsBoxCollision(collision))
     {
-        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Boxes"))
-        {
-            isgrounded = true;
-        }
+        isgrounded = true;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+  
+ }
+
+private void OnCollisionExit2D(Collision2D collision)
+{
+    if (IsGroundCollision(collision) || IsBoxCollision(collision))
     {
-        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Boxes"))
-        {
-            isgrounded = false; 
-        }
+        isgrounded = false;
+    }
+
+      
+
+    }
+
+private bool IsGroundCollision(Collision2D collision)
+{
+    return collision.collider.CompareTag("ground");
+}
+
+    private bool IsBoxCollision(Collision2D collision)
+    {
+        return collision.collider.CompareTag("Boxes");
     }
 
     public void CanHide()

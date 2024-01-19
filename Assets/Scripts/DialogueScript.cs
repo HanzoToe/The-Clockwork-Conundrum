@@ -79,6 +79,6 @@ public class DialogueScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
      
         // Load the new scene
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Office");
     }
 }

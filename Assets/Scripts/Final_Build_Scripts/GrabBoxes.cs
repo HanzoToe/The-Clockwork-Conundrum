@@ -6,24 +6,32 @@ public class BoxInteraction : MonoBehaviour
     //Darren
     private bool canPull = false;
     private GameObject boxToPull;
+    public bool BoxInHand = false;
 
     // Update is called once per frame
     void Update()
     {
         //Allows the box to be pulled
-        if (canPull && Input.GetKey(KeyCode.Q))
+        if (canPull && Input.GetKey(KeyCode.Q) && !BoxInHand)
         {
             CarryBox();
+            BoxInHand = true; 
         }
-        else if (!canPull && boxToPull != null && Input.GetKeyUp(KeyCode.Q))
+        else if (!canPull && boxToPull != null && Input.GetKeyUp(KeyCode.Q) && BoxInHand)
         {
             DropBox();
+            BoxInHand = false;
+        }
+
+        if (!BoxInHand)
+        {
+            Debug.Log("NO BOX");
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Boxes"))
+        if (collision.collider.CompareTag("Boxes") && !BoxInHand)
         {
             canPull = true;
             boxToPull = collision.gameObject;
@@ -35,6 +43,7 @@ public class BoxInteraction : MonoBehaviour
     {
         if (collision.collider.CompareTag("Boxes"))
         {
+            
             canPull = false;
             Debug.Log("Can't pull");
         }

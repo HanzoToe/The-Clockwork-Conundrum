@@ -11,16 +11,12 @@ public class Space_Phone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PopUp_Space.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PopUp_Space.SetActive(true);
-        }
 
         if (PopUp_Space)
         {

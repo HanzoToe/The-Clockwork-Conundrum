@@ -4,29 +4,25 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
-  - Cover
-  - Box
-  - BoxBoundry
-  - Pickup
-  - QUI
-  - DoorCollider
-  - Ball
-  - Enemy
   - wall
+  - BoxBoundry
+  - ground
+  - Pickup
+  - Box
+  - Enemy
   - Boxes
-  - GameMusic
+  - Cover
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - Player
   - Water
   - UI
-  - ground
-  - Box
-  - player
   - enemy
+  - Box
+  - cover
+  - 
   - 
   - 
   - 
@@ -52,7 +48,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 4224129979
     locked: 0

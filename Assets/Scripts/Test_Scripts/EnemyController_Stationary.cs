@@ -12,7 +12,7 @@ public class EnemyController_Stationary : MonoBehaviour
     public float hearingRange = 10f;
     public LayerMask playerLayer;
 
-    private Transform player;
+    public Transform player;
     private bool playerSpotted;
     private Vector3 ballDestroyedPosition;
     private bool ballLandedInRange;
@@ -21,8 +21,9 @@ public class EnemyController_Stationary : MonoBehaviour
     private PlayerMovement playermovement; // Add reference to PlayerMovement script
     public static bool BallOnTheMove = false;
 
-    public Animator animator; 
-        
+    public Animator animator;
+    bool facingright = true;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -44,7 +45,9 @@ public class EnemyController_Stationary : MonoBehaviour
         if (ballLandedInRange)
         {
             MoveTowardsBallDestroyedPosition();
+            
         }
+     
 
     }
 
@@ -56,7 +59,7 @@ public class EnemyController_Stationary : MonoBehaviour
         }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        if (hit.collider != null && hit.collider.CompareTag("Player") && !playermovement.hiding)
         {
             // Player is spotted
             playerSpotted = true;
@@ -80,36 +83,58 @@ public class EnemyController_Stationary : MonoBehaviour
             float stoppingDistance = 1.0f;
             float distanceToBall = Vector2.Distance(transform.position, ballDestroyedPosition);
 
-            // Set a maximum speed
-            float maxSpeed = 5.0f;
+          
 
             Rigidbody2D rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
 
             if (distanceToBall > stoppingDistance)
             {
+                animator.SetFloat("IsWalking", 1f);
+                animator.SetBool("Stand", false);
+
                 // Apply speed based on distance
-                float speed = Mathf.Min(movementSpeed, maxSpeed);
-                animator.SetFloat("IsWalking", Mathf.Abs(speed));
-               
-                // Use Rigidbody2D for movement
+                float speed = (movementSpeed);
+
+                // Use Rigidbody2D velocity for movement
                 rb.velocity = direction * speed;
+
+                // Adjust the Z position to avoid flying
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
             }
-            else
+            else if (distanceToBall <= stoppingDistance)
             {
                 // If the enemy is close enough to the ball, stop moving and set the flag
                 reachedBallPosition = true;
-              
 
                 // Set velocity to zero to stop the movement
                 rb.velocity = Vector2.zero;
 
-                animator.SetFloat("IsWalking", -1f);
+                movementSpeed = 0f;
+
+                animator.SetBool("Stand", true);
+                animator.SetFloat("IsWalking", 0f); // Set walking animation to idle
+            }
+
+            if (movementSpeed > 0 && facingright)
+            {
+                Flip();
+            }
+            else if (movementSpeed < 0 && !facingright)
+            {
+                Flip();
             }
         }
     }
 
 
-private void OnDrawGizmosSelected()
+
+
+
+
+
+
+
+    private void OnDrawGizmosSelected()
     {
         // Draw both detection radius and hearing range as wire spheres in the scene view
         Gizmos.color = Color.yellow;
@@ -132,5 +157,12 @@ private void OnDrawGizmosSelected()
         {
             ballLandedInRange = true;
         }
+    }
+
+    private void Flip()
+    {
+        //Changes where the player is facing
+        facingright = !facingright;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

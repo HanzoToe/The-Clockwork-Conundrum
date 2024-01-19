@@ -13,6 +13,7 @@ public class DK_Dialogue : MonoBehaviour
     private int index;
     public CanvasGroup canvasGroup;
     FadeInOut fadeinout;
+    public GameObject player; 
 
 
     //Darren
@@ -22,7 +23,8 @@ public class DK_Dialogue : MonoBehaviour
     {
         fadeinout = GetComponent<FadeInOut>();
         textcomponent.text = string.Empty;
-        StartDialogue();
+        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
@@ -68,7 +70,7 @@ public class DK_Dialogue : MonoBehaviour
         }
         else
         {
-            fadeinout.FadeOut();
+            fadeinout.FadeIn();
             StartCoroutine(LoadNextScene());
         }
     }
@@ -78,7 +80,8 @@ public class DK_Dialogue : MonoBehaviour
         // Wait for the fade-out animation to complete
         yield return new WaitForSeconds(2f);
 
+        Destroy(player);
         // Load the new scene
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Car_Moving");
     }
 }

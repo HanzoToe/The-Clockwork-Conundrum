@@ -99,7 +99,7 @@ public class Ballcon : MonoBehaviour
             playerMovement.enabled = true;
             Playerboll.freezeplayer = false;
 
-            if (collision.CompareTag("ground"))
+            if (collision.CompareTag("ground") || collision.CompareTag("wall"))
             {
                 // Store the ball's destroyed position in enemies
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
