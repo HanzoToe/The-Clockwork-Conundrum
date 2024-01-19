@@ -178,9 +178,11 @@ MonoBehaviour:
   textcomponent: {fileID: 990679214}
   textspeed: 0.1
   lines:
-  - hello
-  - hi
-  - bye
+  - "... Interesant, en biljet till Tr\xE4holm C"
+  - "*Dektektiven v\xE4nder p\xE5 biljetten*"
+  - "Vad m\xE4rkligt, det finns blodiga bokst\xE4ver p\xE5 baksidan!? Menar han fabriken
+    i Tr\xE4holm?"
+  - Jag borde kolla med min kolega Anders Andersson!
   canvasGroup: {fileID: 1097300569}
   player: {fileID: 0}
 --- !u!114 &4959459
