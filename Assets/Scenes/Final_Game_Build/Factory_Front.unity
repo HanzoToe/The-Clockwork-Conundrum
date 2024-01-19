@@ -358,9 +358,10 @@ MonoBehaviour:
   textcomponent: {fileID: 1004869741}
   textspeed: 0.1
   lines:
-  - hello
-  - hi
-  - bye
+  - "...Chauff\xF6r!"
+  - "Chauff\xF6ren: Ja hern?"
+  - "...Det finns en vakt d\xE4r. Skulle du kunna k\xF6ra runt till baksidan ist\xE4llet?"
+  - "Chauff\xF6ren: Ska bli hern"
   canvasGroup: {fileID: 334544966}
 --- !u!114 &822873613
 MonoBehaviour:

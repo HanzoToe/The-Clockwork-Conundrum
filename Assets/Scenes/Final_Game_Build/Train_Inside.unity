@@ -217,7 +217,8 @@ MonoBehaviour:
   lines:
   - " IDIOT!!! VART FAN \xC4R NYCKJ\xC4VELN????"
   - "Jag kastade ut den p\xE5 perrongen."
-  - "DIN DUMMA J\xC4VEL VARF..... du orkar inte lyssna mer "
+  - "DIN DUMMA J\xC4VEL VARF... "
+  - (Du orkar inte lyssna mer)
   nextline: 0.5
 --- !u!1 &126874456
 GameObject:

@@ -524,9 +524,11 @@ MonoBehaviour:
   textcomponent: {fileID: 749015803}
   textspeed: 0.1
   lines:
-  - hello
-  - hi
-  - bye
+  - "Anders A: Hern, jag unders\xF6kte fabriken och vet du vad? Det verkar som att
+    alla mordoffer som hittats jobbade f\xF6r fabriken i Tr\xE4holm"
+  - "... Jag \xE4r p\xE5 v\xE4g dit nu Anders, vad som en h\xE4nder s\xE5 kommer
+    vi l\xF6sa det."
+  - "Anders A: Ok men var f\xF6rsiktig, n\xE5gonting k\xE4nns v\xE4ldigt skumt h\xE4r."
   canvasGroup: {fileID: 825462369}
 --- !u!1 &541483573
 GameObject:
