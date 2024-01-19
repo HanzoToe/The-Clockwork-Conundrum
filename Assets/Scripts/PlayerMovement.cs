@@ -150,8 +150,7 @@ private void OnCollisionExit2D(Collision2D collision)
     }
 
       
-
-    }
+}
 
 private bool IsGroundCollision(Collision2D collision)
 {
@@ -170,13 +169,15 @@ private bool IsGroundCollision(Collision2D collision)
         //If the player holds down the button 'f' then they can hide
         if (Input.GetKey(KeyCode.F) && canHide)
         {
-            if (canHide)
-            {
+
+        if (canHide)
+        {
                 
-                Physics2D.IgnoreLayerCollision(8, 9, true);
-                rend.sortingOrder = -1;
-                hiding = true;
-            }
+         Physics2D.IgnoreLayerCollision(8, 9, true);
+         rend.sortingOrder = -1;
+         hiding = true;
+        }
+
         }
         else
         {

@@ -6,6 +6,7 @@ public class PickupObject : MonoBehaviour
     //Darren
 
     public static bool KeyPickedUp = false;
+    public GameObject KeyUI;
 
     private void Awake()
     {
@@ -24,4 +25,22 @@ public class PickupObject : MonoBehaviour
             }
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pickup"))
+        {
+            KeyUI.SetActive(true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pickup"))
+        {
+            KeyUI.SetActive(false);
+        }
+    }
+
+
 }
