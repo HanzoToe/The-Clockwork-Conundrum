@@ -89,7 +89,7 @@ public class Ballcon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ground") || collision.CompareTag("wall"))
+        if (collision.CompareTag("ground") || collision.CompareTag("wall") || collision.CompareTag("Planks"))
         {
             new WaitForSeconds(2);
             Destroy(gameObject);
@@ -113,28 +113,27 @@ public class Ballcon : MonoBehaviour
                 }
             }
 
-            if (collision.CompareTag("Planks"))
-            {
+    if (collision.CompareTag("Planks"))
+    {
                 // Get all the rigidbodies in the Planks object
                 Rigidbody2D[] plankRigidbodies = collision.GetComponentsInChildren<Rigidbody2D>();
 
-                // Disable collision between the ball and planks
-                foreach (Collider2D plankCollider in collision.GetComponentsInChildren<Collider2D>())
-                {
-                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), plankCollider, true);
-                }
-
-                // Apply force to each plank in the opposite direction of the ball's movement
-                Vector2 ballVelocity = rb.velocity.normalized;
+                // Iterate through each plank's Rigidbody and unfreeze constraints
                 foreach (Rigidbody2D plankRb in plankRigidbodies)
                 {
                     // Set constraints to none to unfreeze all positions and rotations
                     plankRb.constraints = RigidbodyConstraints2D.None;
-
-                    // Apply force in the opposite direction of the ball's movement
-                    plankRb.AddForce(-ballVelocity * 10f, ForceMode2D.Impulse);
                 }
-            }
-        }
+
+
     }
+        
+        
+        
+        
+    }
+  }
 }
+     
+
+    
