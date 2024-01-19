@@ -112,6 +112,29 @@ public class Ballcon : MonoBehaviour
                     }
                 }
             }
+
+            if (collision.CompareTag("Planks"))
+            {
+                // Get all the rigidbodies in the Planks object
+                Rigidbody2D[] plankRigidbodies = collision.GetComponentsInChildren<Rigidbody2D>();
+
+                // Disable collision between the ball and planks
+                foreach (Collider2D plankCollider in collision.GetComponentsInChildren<Collider2D>())
+                {
+                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), plankCollider, true);
+                }
+
+                // Apply force to each plank in the opposite direction of the ball's movement
+                Vector2 ballVelocity = rb.velocity.normalized;
+                foreach (Rigidbody2D plankRb in plankRigidbodies)
+                {
+                    // Set constraints to none to unfreeze all positions and rotations
+                    plankRb.constraints = RigidbodyConstraints2D.None;
+
+                    // Apply force in the opposite direction of the ball's movement
+                    plankRb.AddForce(-ballVelocity * 10f, ForceMode2D.Impulse);
+                }
+            }
         }
     }
 }
