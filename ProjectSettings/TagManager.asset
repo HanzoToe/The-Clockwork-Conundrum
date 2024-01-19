@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - Boxes
   - Cover
+  - GameMusic
+  - Planks
   layers:
   - Default
   - TransparentFX
