@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,34 +11,47 @@ public class EndGame : MonoBehaviour
     public float timebeforenextscene;
     public bool playerisatthedoor;
 
-    // Start is called before the first frame update
     void Start()
     {
         fade = FindObjectOfType<FadeInOut>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.E) && playerisatthedoor == true)
+        if (Input.GetKeyDown(KeyCode.E) && playerisatthedoor)
         {
-            StartCoroutine(_door());
+            StartCoroutine(OpenDoor());
         }
     }
 
-    public IEnumerator _door()
+    IEnumerator OpenDoor()
     {
-
         yield return new WaitForSeconds(timebeforenextscene);
 
         fade.Fade_in = true;
         yield return new WaitForSeconds(1);
+
+        // Destroy all game objects in the scene
+        DestroyAllGameObjects();
+
+        // Load the new scene
         SceneManager.LoadScene("Main_Menu");
-        Destroy(player);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    void DestroyAllGameObjects()
+    {
+        GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+        foreach (GameObject go in gameObjects)
+        {
+            // Exclude certain objects from destruction if needed
+            if (go.tag != "ExcludeFromDestruction")
+            {
+                Destroy(go);
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -49,15 +60,10 @@ public class EndGame : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
-
         playerisatthedoor = false;
         pressEUI.SetActive(false);
     }
-
-
-
-
-
 }
+

@@ -8,6 +8,11 @@ public class PickupObject : MonoBehaviour
     public static bool KeyPickedUp = false;
     public GameObject KeyUI;
 
+    private void Start()
+    {
+        KeyUI = GameObject.Find("KeyUI");
+    }
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

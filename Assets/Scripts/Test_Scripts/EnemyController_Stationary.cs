@@ -7,7 +7,6 @@ public class EnemyController_Stationary : MonoBehaviour
 {
     //Darren
 
-    public float detectionRadius = 5f;
     public float movementSpeed = 2f;
     public float hearingRange = 10f;
     public LayerMask playerLayer;
@@ -32,14 +31,6 @@ public class EnemyController_Stationary : MonoBehaviour
 
     private void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // Check if the player is within the detection radius
-        if (distanceToPlayer <= detectionRadius)
-        {
-            // Spot the player
-            SpotPlayer();
-        }
 
         // If the ball has landed within the hearing range
         if (ballLandedInRange)
@@ -47,30 +38,7 @@ public class EnemyController_Stationary : MonoBehaviour
             MoveTowardsBallDestroyedPosition();
             
         }
-     
 
-    }
-
-    private void SpotPlayer()
-    {
-        if (playermovement != null && playermovement.hiding)
-        {
-            return; // Don't spot the player if hiding
-        }
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
-        if (hit.collider != null && hit.collider.CompareTag("Player") && !playermovement.hiding)
-        {
-            // Player is spotted
-            playerSpotted = true;
-            RestartScene();
-        }
-    }
-
-    private void RestartScene()
-    {
-        // Restart the scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void MoveTowardsBallDestroyedPosition()
@@ -128,17 +96,25 @@ public class EnemyController_Stationary : MonoBehaviour
 
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !playermovement.hiding)
+        {
+            RestartScene();
+        }
+    }
 
-
+    private void RestartScene()
+    {
+        // Restart the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
 
 
     private void OnDrawGizmosSelected()
     {
-        // Draw both detection radius and hearing range as wire spheres in the scene view
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, hearingRange);
