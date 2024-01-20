@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float movement;
     public float jump = 2f;
     private bool isgrounded = false;
+    private bool isOnBox = false;
 
     public Rigidbody2D rb;
     private float dirX;
@@ -121,38 +122,46 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        //Allows the player to jump
-        if (Input.GetButtonDown("Jump") && isgrounded)
+        // Allows the player to jump if on the ground or on a box
+        if (Input.GetButtonDown("Jump") && (isgrounded || isOnBox))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jump); 
+            rb.velocity = new Vector2(rb.velocity.x, jump);
         }
+
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
 
- private void OnCollisionEnter2D(Collision2D collision)
-{
-    if (IsGroundCollision(collision) || IsBoxCollision(collision))
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        isgrounded = true;
+        if (IsGroundCollision(collision))
+        {
+            isgrounded = true;
+        }
+
+        if (IsBoxCollision(collision))
+        {
+            isOnBox = true;
+        }
     }
 
-  
- }
-
-private void OnCollisionExit2D(Collision2D collision)
-{
-    if (IsGroundCollision(collision) || IsBoxCollision(collision))
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        isgrounded = false;
+        if (IsGroundCollision(collision))
+        {
+            isgrounded = false;
+        }
+
+        if (IsBoxCollision(collision))
+        {
+            isOnBox = false;
+        }
     }
 
-      
-}
-
-private bool IsGroundCollision(Collision2D collision)
+    private bool IsGroundCollision(Collision2D collision)
 {
     return collision.collider.CompareTag("ground");
 }
@@ -194,5 +203,10 @@ private bool IsGroundCollision(Collision2D collision)
             rb.velocity = new Vector2(dirX, rb.velocity.y);
         else
             rb.velocity = Vector2.zero;
+
+        if (hiding)
+        {
+            isgrounded = false;
+        }
     }
 }
