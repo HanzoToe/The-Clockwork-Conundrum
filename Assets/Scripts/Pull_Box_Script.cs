@@ -13,6 +13,9 @@ public class Pull_Box_Script : MonoBehaviour
     public Transform boundaryPoint;
     public GameObject PressQUI;
     public Animator animator;
+    private bool pulling = false; 
+
+
     private void Start()
     {
         // Initial setup to find UI GameObject
@@ -32,6 +35,11 @@ public class Pull_Box_Script : MonoBehaviour
         if (canPull && Input.GetKey(KeyCode.Q))
         {
             PullBox();
+            animator.SetBool("IsDrag", true);
+        }
+        else
+        {
+            animator.SetBool("IsDrag", false);
         }
     }
 
@@ -110,8 +118,6 @@ public class Pull_Box_Script : MonoBehaviour
         if (distanceToBoundary > maxPullDistance)
         {
             boxToPull.transform.position += pullDirection * Time.deltaTime * 5f;
-
-            animator.SetBool("IsDrag", true);
             
         }
         else
@@ -129,9 +135,5 @@ public class Pull_Box_Script : MonoBehaviour
             }
         }
 
-        if(distanceToBoundary < maxPullDistance)
-        {
-            animator.SetBool("IsDrag", false);
-        }
     }
-}
+} 

@@ -6,11 +6,11 @@ public class PickupObject : MonoBehaviour
     //Darren
 
     public static bool KeyPickedUp = false;
-    public GameObject KeyUI;
+    public string keyUITag = "KeyTag";
 
     private void Start()
     {
-        KeyUI = GameObject.Find("KeyUI");
+        GameObject KeyUI = GameObject.FindWithTag("KeyTag");
     }
 
     private void Awake()
@@ -35,7 +35,11 @@ public class PickupObject : MonoBehaviour
     {
         if (collision.CompareTag("Pickup"))
         {
-            KeyUI.SetActive(true);
+            GameObject keyUIGameObject = GameObject.FindWithTag(keyUITag);
+            if (keyUIGameObject != null)
+            {
+                keyUIGameObject.SetActive(true);
+            }
         }
     }
 
@@ -43,7 +47,11 @@ public class PickupObject : MonoBehaviour
     {
         if (collision.CompareTag("Pickup"))
         {
-            KeyUI.SetActive(false);
+            GameObject keyUIGameObject = GameObject.FindWithTag(keyUITag);
+            if (keyUIGameObject != null)
+            {
+                keyUIGameObject.SetActive(false);
+            }
         }
     }
 
