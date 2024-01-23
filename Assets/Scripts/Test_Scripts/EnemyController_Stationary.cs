@@ -60,11 +60,8 @@ public class EnemyController_Stationary : MonoBehaviour
                 animator.SetFloat("IsWalking", 1f);
                 animator.SetBool("Stand", false);
 
-                // Apply speed based on distance
-                float speed = (movementSpeed);
-
                 // Use Rigidbody2D velocity for movement
-                rb.velocity = direction * speed;
+                rb.velocity = direction * movementSpeed;
 
                 // Adjust the Z position to avoid flying
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
