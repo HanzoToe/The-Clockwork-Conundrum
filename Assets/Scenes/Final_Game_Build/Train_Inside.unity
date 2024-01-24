@@ -219,7 +219,7 @@ MonoBehaviour:
   - "Jag kastade ut den p\xE5 perrongen."
   - "DIN DUMMA J\xC4VEL VARF... "
   - (Du orkar inte lyssna mer)
-  nextline: 0.5
+  nextline: 1.5
 --- !u!1 &126874456
 GameObject:
   m_ObjectHideFlags: 0
