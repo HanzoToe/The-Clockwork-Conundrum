@@ -6,7 +6,8 @@ public class PickupObject : MonoBehaviour
     //Darren
 
     public static bool KeyPickedUp = false;
-    public GameObject KeyUI; 
+    public GameObject KeyUI;
+    bool OnKey = false;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class PickupObject : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pickup"))
+        if (collision.gameObject.CompareTag("Pickup") && OnKey)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -42,6 +43,8 @@ public class PickupObject : MonoBehaviour
     {
         if (collision.CompareTag("Pickup"))
         {
+            OnKey = true;
+            
             if (KeyUI != null)
             {
                 KeyUI.SetActive(true);
@@ -53,6 +56,8 @@ public class PickupObject : MonoBehaviour
     {
         if (collision.CompareTag("Pickup"))
         {
+            OnKey = false;
+            
             if(KeyUI != null)
             {
                 KeyUI.SetActive(false);
