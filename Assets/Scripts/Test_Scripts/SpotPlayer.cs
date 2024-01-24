@@ -11,7 +11,7 @@ public class SpotPlayer : MonoBehaviour
     public LayerMask playerLayer;
 
     public Transform player;
-    private bool playerSpotted;
+
     private PlayerMovement playermovement; // Add reference to PlayerMovement script
    
 
@@ -47,8 +47,6 @@ public class SpotPlayer : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
         if (hit.collider != null && hit.collider.CompareTag("Player") && !playermovement.hiding)
         {
-            // Player is spotted
-            playerSpotted = true;
             RestartScene();
         }
     }
