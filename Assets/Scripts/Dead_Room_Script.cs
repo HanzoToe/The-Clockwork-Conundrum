@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Dead_Room_Script : MonoBehaviour
 {
-    //Hi
+    //Darren
 
     FadeInOut fade;
     public GameObject pressEUI;
@@ -37,7 +37,7 @@ public class Dead_Room_Script : MonoBehaviour
         yield return new WaitForSeconds(timebeforenextscene);
 
         fade.Fade_in = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Dead_Body");
     }
 

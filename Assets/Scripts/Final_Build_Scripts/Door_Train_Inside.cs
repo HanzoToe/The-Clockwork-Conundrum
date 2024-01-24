@@ -36,7 +36,7 @@ public class Door_Train_Inside : MonoBehaviour
         yield return new WaitForSeconds(timebeforenextscene);
 
         fade.Fade_in = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Train_Scene_1");
     }
 
