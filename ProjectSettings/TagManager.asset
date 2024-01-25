@@ -15,6 +15,7 @@ TagManager:
   - GameMusic
   - Planks
   - KeyTag
+  - Stone
   layers:
   - Default
   - TransparentFX

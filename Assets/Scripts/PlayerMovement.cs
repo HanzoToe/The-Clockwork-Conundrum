@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jump = 2f;
     private bool isgrounded = false;
     private bool isOnBox = false;
+    private bool isOnStone = false; 
 
     public Rigidbody2D rb;
     private float dirX;
@@ -26,8 +27,7 @@ public class PlayerMovement : MonoBehaviour
     float OriginalSpeed;
     float OriginalJump;
 
-
-
+    float cooldown = 0; 
 
     // Start is called before the first frame update
     private void Start()
@@ -125,9 +125,28 @@ public class PlayerMovement : MonoBehaviour
     private void HandleJump()
     {
         // Allows the player to jump if on the ground or on a box
-        if (Input.GetButtonDown("Jump") && (isgrounded || isOnBox))
+        if (Input.GetButtonDown("Jump") && (isgrounded || isOnBox || isOnStone))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jump);
+            if (!PauseScript.isPaused)
+            {
+
+                if (cooldown <= 0)
+                {
+                    cooldown = 1;
+                    rb.velocity = new Vector2(rb.velocity.x, jump);
+                }
+                else
+                {
+                    Debug.Log("Jump on cooldown");
+                }
+            }
+           
+        }
+
+
+        if (cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -148,6 +167,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnBox = true;
         }
+
+        if (IsStoneCollision(collision))
+        {
+            isOnStone = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -161,6 +185,12 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnBox = false;
         }
+
+
+        if (IsStoneCollision(collision))
+        {
+            isOnStone = false;
+        }
     }
 
     private bool IsGroundCollision(Collision2D collision)
@@ -171,6 +201,11 @@ public class PlayerMovement : MonoBehaviour
     private bool IsBoxCollision(Collision2D collision)
     {
         return collision.collider.CompareTag("Boxes");
+    }
+
+    private bool IsStoneCollision(Collision2D collision)
+    {
+        return collision.collider.CompareTag("Stone");
     }
 
     public void CanHide()
