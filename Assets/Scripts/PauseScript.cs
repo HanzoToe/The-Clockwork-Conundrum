@@ -51,10 +51,23 @@ public class PauseScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main_Menu");
-        Destroy(player);
+        DestroyAllGameObjects();
     }
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void DestroyAllGameObjects()
+    {
+        GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+        foreach (GameObject go in gameObjects)
+        {
+            // Exclude certain objects from destruction if needed
+            if (go.tag != "ExcludeFromDestruction")
+            {
+                Destroy(go);
+            }
+        }
     }
 }

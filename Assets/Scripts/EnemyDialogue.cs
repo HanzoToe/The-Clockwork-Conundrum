@@ -14,6 +14,7 @@ public class EnemyDialogue : MonoBehaviour
     private int index;
     public float nextline; 
     bool IsShowingMessage = true;
+    public GameObject ObjectiveUI; 
 
 
 
@@ -29,7 +30,7 @@ public class EnemyDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (IsShowingMessage == false)
+       if (!IsShowingMessage)
         {
             IsShowingMessage = true; 
 
@@ -44,10 +45,13 @@ public class EnemyDialogue : MonoBehaviour
             }
         }
 
-        if (PickupObject.KeyPickedUp )
+        if (PickupObject.KeyPickedUp)
         {
-            textcomponent.enabled = false; 
+            textcomponent.enabled = false;
+            ObjectiveUI.SetActive(false);
         }
+
+
     }
 
     public void StartDialogue()
@@ -71,6 +75,8 @@ public class EnemyDialogue : MonoBehaviour
         yield return new WaitForSeconds(nextline);
         
         IsShowingMessage = false;
+        ObjectiveUI.SetActive(true);
+
     }
 
     void Nextline()
@@ -82,7 +88,4 @@ public class EnemyDialogue : MonoBehaviour
             StartCoroutine(Typeline());
         }
     }
-
-    
-
 }
