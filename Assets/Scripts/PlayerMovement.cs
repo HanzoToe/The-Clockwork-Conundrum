@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (cooldown <= 0)
                 {
-                    cooldown = 1;
+                    cooldown = 0.8f;
                     rb.velocity = new Vector2(rb.velocity.x, jump);
                 }
                 else

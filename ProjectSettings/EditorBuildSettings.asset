@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final_Game_Build/Factory_Back.unity
     guid: 961d1f8f7e3f68146b22841aaf9b283f
+  - enabled: 1
+    path: Assets/Scenes/Final_Game_Build/Fac_Inside_1.unity
+    guid: 47ef6766e1a717d478cc44399cadac22
   m_configObjects: {}

@@ -35,7 +35,7 @@ public class EndGame : MonoBehaviour
         DestroyAllGameObjects();
 
         // Load the new scene
-        SceneManager.LoadScene("Main_Menu");
+        SceneManager.LoadScene(10);
     }
 
     void DestroyAllGameObjects()
