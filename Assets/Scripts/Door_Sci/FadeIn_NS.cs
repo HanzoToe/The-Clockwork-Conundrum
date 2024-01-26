@@ -11,7 +11,9 @@ public class FadeIn_NextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fade = FindObjectOfType<FadeInOut>();
+        Debug.Log("Fading");
+        
+        fade = GetComponent<FadeInOut>();
         fade.FadeOut();
     }
 }

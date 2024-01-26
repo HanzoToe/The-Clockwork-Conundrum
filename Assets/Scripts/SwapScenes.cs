@@ -9,12 +9,10 @@ public class SwapScenes : MonoBehaviour
     {
         
 
-        if (SceneManager.GetActiveScene().name == "Office")
+        if (SceneManager.GetActiveScene().name == "Train_Scene")
             BGmusic.instance.GetComponent<AudioSource>().Pause();
-        if (SceneManager.GetActiveScene().name == "Train_Inside")
-            BGmusic.instance.GetComponent<AudioSource>().Play();
         
-        //BGmusic.instance.GetComponent<AudioSource>().Play();
+        BGmusic.instance.GetComponent<AudioSource>().Play();
 
     }
 }

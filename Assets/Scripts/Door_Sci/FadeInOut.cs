@@ -54,6 +54,7 @@ public class FadeInOut : MonoBehaviour
 
     public void FadeOut()
     {
+        Debug.Log("SettingFadeOut");
         Fade_out = true;
     }
 }
