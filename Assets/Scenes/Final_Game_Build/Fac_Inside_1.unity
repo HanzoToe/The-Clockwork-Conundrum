@@ -740,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.13727628
       objectReference: {fileID: 0}
+    - target: {fileID: 5310992825363616588, guid: bfd446e9e14811a409ad50fbabdec07d, type: 3}
+      propertyPath: Ball
+      value: 
+      objectReference: {fileID: 1824173148422845903, guid: 6f34d8e95ad1e3c498f5fc748eab1db3, type: 3}
     - target: {fileID: 8181929767918956110, guid: bfd446e9e14811a409ad50fbabdec07d, type: 3}
       propertyPath: m_FlipX
       value: 0
