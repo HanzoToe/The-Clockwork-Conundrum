@@ -10,7 +10,7 @@ public class EndGame : MonoBehaviour
     public GameObject door;
     public float timebeforenextscene;
     public bool playerisatthedoor;
-
+    
     void Start()
     {
         fade = FindObjectOfType<FadeInOut>();
@@ -53,7 +53,7 @@ public class EndGame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && BoxInteraction.OnBox)
         {
             playerisatthedoor = true;
             pressEUI.SetActive(true);

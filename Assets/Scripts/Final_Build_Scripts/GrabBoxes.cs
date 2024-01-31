@@ -7,6 +7,7 @@ public class BoxInteraction : MonoBehaviour
     private bool canPull = false;
     private GameObject boxToPull;
     public bool BoxInHand = false;
+    public static bool OnBox = false; 
 
     // Update is called once per frame
     void Update()
@@ -33,6 +34,7 @@ public class BoxInteraction : MonoBehaviour
     {
         if (collision.collider.CompareTag("Boxes") && !BoxInHand)
         {
+            OnBox = true; 
             canPull = true;
             boxToPull = collision.gameObject;
             Debug.Log("Can pull");
@@ -43,7 +45,7 @@ public class BoxInteraction : MonoBehaviour
     {
         if (collision.collider.CompareTag("Boxes"))
         {
-            
+            OnBox = false; 
             canPull = false;
             Debug.Log("Can't pull");
         }
