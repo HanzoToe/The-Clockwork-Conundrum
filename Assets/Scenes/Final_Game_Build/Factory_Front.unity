@@ -447,9 +447,9 @@ MonoBehaviour:
   textspeed: 0.1
   lines:
   - "...Chauff\xF6r!"
-  - "Chauff\xF6ren: Ja hern?"
+  - "Chauff\xF6ren: Ja herrn?"
   - "...Det finns en vakt d\xE4r. Skulle du kunna k\xF6ra runt till baksidan ist\xE4llet?"
-  - "Chauff\xF6ren: Ska bli hern"
+  - "Chauff\xF6ren: Ska bli herrn"
   canvasGroup: {fileID: 334544966}
 --- !u!114 &822873613
 MonoBehaviour:
