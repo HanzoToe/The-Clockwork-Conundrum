@@ -1748,7 +1748,7 @@ MonoBehaviour:
   lines:
   - "(Fan, jag m\xE5ste hitta ett s\xE4tt att komma in i det d\xE4r h\xE5let)"
   - "(Kanske kommer dessa l\xE5dor att vara anv\xE4ndbara)"
-  - "(Men hur f\xE5r jag upp den d\xE4r p\xE5 plankan?)"
+  - "(Men hur f\xE5r jag ner den d\xE4r l\xE5dan p\xE5 plankan?)"
   - "Objektiv: G\xE5 in i h\xE5let."
   nextline: 1.5
   ObjectiveUI: {fileID: 0}
