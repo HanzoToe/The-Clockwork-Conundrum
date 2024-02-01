@@ -34,10 +34,13 @@ public class BoxInteraction : MonoBehaviour
     {
         if (collision.collider.CompareTag("Boxes") && !BoxInHand)
         {
-            OnBox = true; 
             canPull = true;
             boxToPull = collision.gameObject;
             Debug.Log("Can pull");
+        }
+        if (collision.collider.CompareTag("Boxes"))
+        {
+            OnBox = true;
         }
     }
 
