@@ -76,8 +76,12 @@ public class EnemyController_Stationary : MonoBehaviour
 
                 movementSpeed = 0f;
 
-                animator.SetBool("Stand", true);
-                animator.SetFloat("IsWalking", 0f); // Set walking animation to idle
+                if(rb.velocity == Vector2.zero)
+                {
+                    animator.SetBool("Stand", true);
+                    animator.SetFloat("IsWalking", 0f); // Set walking animation to idle
+                }
+              
             }
 
             if (movementSpeed > 0 && facingright)

@@ -28,6 +28,11 @@ public class BoxInteraction : MonoBehaviour
         {
             Debug.Log("NO BOX");
         }
+
+        if (OnBox)
+        {
+            Debug.Log("OnBox");
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
