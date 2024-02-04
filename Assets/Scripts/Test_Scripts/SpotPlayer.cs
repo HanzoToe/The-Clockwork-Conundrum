@@ -44,7 +44,10 @@ public class SpotPlayer : MonoBehaviour
             return; // Don't spot the player if hiding
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, detectionRadius, playerLayer);
+        // Calculate ray direction dynamically
+        Vector2 rayDirection = player.position - (Vector3)transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection.normalized, detectionRadius, playerLayer);
+
         if (hit.collider != null && hit.collider.CompareTag("Player") && !playermovement.hiding)
         {
             RestartScene();

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickupObject : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PickupObject : MonoBehaviour
 
     private void Awake()
     {
+        if(SceneManager.GetActiveScene().name != "Fac_Inside_1" )
         DontDestroyOnLoad(this.gameObject);
 
     }

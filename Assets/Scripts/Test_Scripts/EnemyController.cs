@@ -9,12 +9,14 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     public Transform[] patrolpoints;
     public float movespeed = 5f;
-    private bool playerdetected = false;
     private int currentPatrolIndex = 0;
     private Rigidbody2D rb;
-    private bool isChasingPlayer = false;
-    private Rigidbody2D playerRigidbody;
-    public PlayerMovement playermovement; 
+    public PlayerMovement playermovement;
+    public float tolerance = 2f;
+    public float Wait = 0f;
+    bool flipped = false;
+    public Animator animator; 
+
 
 
     //Darren
@@ -23,82 +25,66 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         playermovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //checks if player is hiding
-        if (playermovement.hiding)
+         if(Wait <= 0)
         {
-            isChasingPlayer = false;
-            playerdetected = false;
-        }
+            animator.SetFloat("IsWalking", Mathf.Abs(1f));
+            animator.SetBool("Stand", false);
+            flipped = false; 
 
-        if (playerdetected && !isChasingPlayer)
-        {
-            isChasingPlayer = true;
-            currentPatrolIndex = (currentPatrolIndex + 1) % patrolpoints.Length; // Update current patrol index
-        }
-
-        //Basically kills the player
-        if (isChasingPlayer)
-        {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.AddForce(direction * movespeed, ForceMode2D.Force);
-
-            if (Vector2.Distance(transform.position, player.position) < 1f)
-            {
-                Invoke("Restart", 0.2f);
-            }
-
-            if (playerRigidbody.velocity.y <= 0f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, playerRigidbody.velocity.y);
-            }
-        }
-        else
-        {
             //Forces the enemy to go back and forth in between two control points. 
             Transform currentPatrolPoint = patrolpoints[currentPatrolIndex];
             Vector2 direction = (currentPatrolPoint.position - transform.position).normalized;
             rb.velocity = direction * movespeed;
 
-            if (Vector2.Distance(transform.position, currentPatrolPoint.position) < 1f)
+            if (Vector2.Distance(transform.position, currentPatrolPoint.position) < tolerance)
             {
+                
                 currentPatrolIndex = (currentPatrolIndex + 1) % patrolpoints.Length;
+                Wait = 1f;
+            
+                rb.velocity = Vector2.zero; 
             }
-        }
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerdetected = true;
-        }
 
-        
+            Debug.Log("Distance to Patrol Point: " + Vector2.Distance(transform.position, currentPatrolPoint.position));
+            Debug.Log("Current Patrol Index: " + currentPatrolIndex);
+        }
+       
+        if(Wait > 0)
+        {
+            animator.SetFloat("IsWalking", -1f);
+            animator.SetBool("Stand", true); 
+            Wait -= Time.fixedDeltaTime;
+           
+          if(Wait < 0.01)
+            {
+                if (!flipped)
+                {
+                    Flip();
+                    flipped = true;
+                }
+            }
+          
+            
+        }
 
     }
     
-    void OnTriggerExit2D(Collider2D collision)
+    private void Flip()
     {
-        if (collision.CompareTag("Player"))
-        {
-            playerdetected = false;
-            isChasingPlayer = false;
-            rb.velocity = Vector2.zero;
-        }
+      transform.Rotate(0, 180, 0);
     }
+
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-
-
 
 }

@@ -66,7 +66,7 @@ public class BoxInteraction : MonoBehaviour
             // Attach the box to the player
             boxToPull.transform.parent = transform;
 
-            // A        djust the position and rotation for a better look
+            // Adjust the position and rotation for a better look
             boxToPull.transform.localPosition = new Vector3(-1f, 0.5f, 0f);
             boxToPull.transform.localRotation = Quaternion.identity;
 

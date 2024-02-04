@@ -7,6 +7,7 @@ public class EnemyController_Stationary : MonoBehaviour
 {
     //Darren
 
+    float stoppingDistance = 3f;
     public float movementSpeed = 2f;
     public float hearingRange = 10f;
     public LayerMask playerLayer;
@@ -22,6 +23,7 @@ public class EnemyController_Stationary : MonoBehaviour
 
     public Animator animator;
     bool facingright = true;
+
 
     private void Start()
     {
@@ -48,7 +50,7 @@ public class EnemyController_Stationary : MonoBehaviour
             Vector2 direction = (ballDestroyedPosition - transform.position).normalized;
 
             // Introduce a stopping distance
-            float stoppingDistance = 1.0f;
+     
             float distanceToBall = Vector2.Distance(transform.position, ballDestroyedPosition);
 
           
@@ -76,8 +78,9 @@ public class EnemyController_Stationary : MonoBehaviour
 
                 movementSpeed = 0f;
 
-                if(rb.velocity == Vector2.zero)
+                if (reachedBallPosition)
                 {
+                    Debug.Log("AT BALL");
                     animator.SetBool("Stand", true);
                     animator.SetFloat("IsWalking", 0f); // Set walking animation to idle
                 }
@@ -119,6 +122,10 @@ public class EnemyController_Stationary : MonoBehaviour
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, hearingRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, stoppingDistance); 
+
     }
 
     // Added method to set the ball destroyed position

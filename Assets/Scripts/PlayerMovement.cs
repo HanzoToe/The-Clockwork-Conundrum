@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float jump = 2f;
     private bool isgrounded = false;
     private bool isOnBox = false;
-    private bool isOnStone = false; 
+    private bool isOnStone = false;
+    private bool isOnBox2 = false;
 
     public Rigidbody2D rb;
     private float dirX;
@@ -125,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
     private void HandleJump()
     {
         // Allows the player to jump if on the ground or on a box
-        if (Input.GetButtonDown("Jump") && (isgrounded || isOnBox || isOnStone))
+        if (Input.GetButtonDown("Jump") && (isgrounded || isOnBox || isOnStone || isOnBox2))
         {
             if (!PauseScript.isPaused)
             {
@@ -172,6 +173,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnStone = true;
         }
+
+        if (IsBoxCollision2(collision))
+        {
+            isOnBox2 = true; 
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -191,6 +197,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnStone = false;
         }
+
+        if (IsBoxCollision2(collision))
+        {
+            isOnBox2 = false;
+        }
     }
 
     private bool IsGroundCollision(Collision2D collision)
@@ -206,6 +217,11 @@ public class PlayerMovement : MonoBehaviour
     private bool IsStoneCollision(Collision2D collision)
     {
         return collision.collider.CompareTag("Stone");
+    }
+
+    private bool IsBoxCollision2(Collision2D collision)
+    {
+        return collision.collider.CompareTag("Box");
     }
 
     public void CanHide()
