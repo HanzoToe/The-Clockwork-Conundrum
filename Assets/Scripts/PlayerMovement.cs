@@ -70,7 +70,19 @@ public class PlayerMovement : MonoBehaviour
             speed = OriginalSpeed;
             jump = OriginalJump;
         }
-        
+       
+        if (DialogueTrigger.Freezeplayer)
+        {
+            speed = 0f;
+            jump = 0f;
+            animator.SetFloat("IsWalking", -1f);
+        }
+        else if (!DialogueTrigger.Freezeplayer && !Playerboll.freezeplayer)
+        {
+            speed = OriginalSpeed;
+            jump = OriginalJump;
+        }
+
     }
 
     private void FixedUpdate()

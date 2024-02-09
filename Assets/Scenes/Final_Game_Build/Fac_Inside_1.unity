@@ -4384,7 +4384,7 @@ MonoBehaviour:
   - "(Det \xE4r ganska m\xF6rkt h\xE4r, kan knappt se.)"
   - "(Jag beh\xF6ver bara forts\xE4tta genom den h\xE4r fabriken.)"
   - "(Jag m\xE5ste ta reda p\xE5 vad som h\xE4nder h\xE4r)"
-  - "Objektiv: Ta red p\xE5 vad som h\xE4nder"
+  - "Objektiv: Ta reda p\xE5 vad som h\xE4nder"
   nextline: 1.5
   ObjectiveUI: {fileID: 0}
 --- !u!114 &2091691353
