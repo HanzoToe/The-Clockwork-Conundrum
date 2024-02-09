@@ -35,7 +35,20 @@ public class credits : MonoBehaviour
    public void MainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
+        DestroyAllGameObjects();
     }
 
 
+    void DestroyAllGameObjects()
+    {
+        GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+        foreach (GameObject go in gameObjects)
+        {
+            if (go.tag != "ExcludeFromDestruction")
+            {
+                Destroy(go);
+            }
+
+        }
+    }
 }
