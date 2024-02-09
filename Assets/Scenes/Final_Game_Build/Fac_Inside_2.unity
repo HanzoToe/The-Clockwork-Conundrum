@@ -519,8 +519,8 @@ Transform:
   m_GameObject: {fileID: 93022434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17, y: 7, z: 0}
-  m_LocalScale: {x: 2.991129, y: 4.24125, z: 1}
+  m_LocalPosition: {x: -14, y: 7, z: 0}
+  m_LocalScale: {x: 2.2807357, y: 4.24125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.514
+  m_FalloffIntensity: 0.378
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -1580,6 +1580,107 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &687753267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687753271}
+  - component: {fileID: 687753270}
+  - component: {fileID: 687753269}
+  - component: {fileID: 687753268}
+  m_Layer: 0
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &687753268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687753267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64755c990511e2469fa204c5b937bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressEUI: {fileID: 0}
+  player: {fileID: 0}
+  door: {fileID: 0}
+  timebeforenextscene: 0
+  playerisatthedoor: 0
+--- !u!58 &687753269
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687753267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.6014099, y: 9.512975}
+  serializedVersion: 2
+  m_Radius: 6.9784727
+--- !u!114 &687753270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687753267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac637d2ca1d11642a52f3815f57289d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasGroup: {fileID: 2093637993}
+  Fade_in: 0
+  Fade_out: 0
+--- !u!4 &687753271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687753267}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.39859, y: -11, z: -0.08680539}
+  m_LocalScale: {x: 1, y: 0.5125, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701966652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,7 +2426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1085592280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2548,12 +2649,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textcomponent: {fileID: 1810884934}
-  textspeed: 0.08
+  textspeed: 0.01
   lines:
-  - "(Det \xE4r ganska m\xF6rkt h\xE4r, kan knappt se.)"
-  - "(Jag beh\xF6ver bara forts\xE4tta genom den h\xE4r fabriken.)"
-  - "(Jag m\xE5ste ta reda p\xE5 vad som h\xE4nder h\xE4r)"
-  - "Objektiv: Ta red p\xE5 vad som h\xE4nder"
+  - "Objektiv: Ta reda p\xE5 vad som h\xE4nder"
   nextline: 1.5
   ObjectiveUI: {fileID: 0}
 --- !u!114 &1091290898
@@ -3238,7 +3336,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35, y: 7.5962276, z: 0}
-  m_LocalScale: {x: 2.991129, y: 4.24125, z: 1}
+  m_LocalScale: {x: 1.9068446, y: 4.24125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3851,7 +3949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 209917226307629538, guid: f21fc0080aabcba43937bbe3232ad329, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0018525
+      value: 0.3369274
       objectReference: {fileID: 0}
     - target: {fileID: 209917226307629538, guid: f21fc0080aabcba43937bbe3232ad329, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3916,7 +4014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 209917226307629538, guid: f21fc0080aabcba43937bbe3232ad329, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.0196476
+      value: -6.683832
       objectReference: {fileID: 0}
     - target: {fileID: 209917226307629538, guid: f21fc0080aabcba43937bbe3232ad329, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4784,7 +4882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2908173097045884235, guid: 083e5881b3299ca419c5df2b83c753d8, type: 3}
       propertyPath: detectionRadius
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4182160864414398745, guid: 083e5881b3299ca419c5df2b83c753d8, type: 3}
       propertyPath: tolerance
@@ -4814,6 +4912,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 6619004824327649922, guid: 083e5881b3299ca419c5df2b83c753d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8459334
+      objectReference: {fileID: 0}
     - target: {fileID: 6619004824327649922, guid: 083e5881b3299ca419c5df2b83c753d8, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.46
@@ -5203,3 +5305,4 @@ SceneRoots:
   - {fileID: 647642945}
   - {fileID: 1928792162}
   - {fileID: 1374813966}
+  - {fileID: 687753271}

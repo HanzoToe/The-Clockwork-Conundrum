@@ -17,7 +17,7 @@ public class PickupObject : MonoBehaviour
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().name != "Fac_Inside_1" )
+        if(SceneManager.GetActiveScene().name != "Fac_Inside_1" && SceneManager.GetActiveScene().name != "Fac_Inside_2")
         DontDestroyOnLoad(this.gameObject);
 
     }
