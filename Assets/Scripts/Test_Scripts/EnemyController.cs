@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
             {
                 
                 currentPatrolIndex = (currentPatrolIndex + 1) % patrolpoints.Length;
-                Wait = 1f;
+                Wait = 2f;
             
                 rb.velocity = Vector2.zero; 
             }
