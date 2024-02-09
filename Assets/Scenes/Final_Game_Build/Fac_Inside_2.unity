@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64755c990511e2469fa204c5b937bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressEUI: {fileID: 0}
+  pressEUI: {fileID: 1641442649}
   player: {fileID: 0}
   door: {fileID: 0}
   timebeforenextscene: 0
