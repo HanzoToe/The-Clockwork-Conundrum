@@ -19,12 +19,15 @@ public class Biljet : MonoBehaviour
 
     private bool dialogueStarted = false;
 
-    public GameObject dialoguebox; 
+    public GameObject dialoguebox;
+
+    public GameObject player; 
 
     // Start is called before the first frame update
     void Start()
     {
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player"); 
         dialogueScript.gameObject.SetActive(false);
     }
 
@@ -38,6 +41,8 @@ public class Biljet : MonoBehaviour
             FreezePlayer = true;
 
             BeginDialogue = true;
+
+            player.SetActive(false);
         }
 
         if (BeginDialogue == true && dialogueStarted == false)
