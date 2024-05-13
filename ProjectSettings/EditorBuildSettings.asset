@@ -5,46 +5,46 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Main_Menu.unity
     guid: 440d100ab4b039748bef70fa74b3b657
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Train_Scene.unity
-    guid: 9f55fbfe8b0493d4f99f3a9606549c76
-  - enabled: 1
+    guid: ad6a22584fabd444292e016e1d23bb1c
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Train_Inside.unity
     guid: 5a693dac202669140b04d28313b8e533
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Train_Scene_1.unity
-    guid: 6ee346e5bcc35ff44bb95197c07433e6
-  - enabled: 1
+    guid: 8a4d798f3c71d3a49abc4dce0c285a83
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Phone_Test.unity
     guid: 89651836369bdac45ab4d345eef3fd8b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Dead_Body.unity
     guid: 4e6d51c31c7ed104fae36dc556544160
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Office.unity
     guid: c427aa9892f86f644ba55b6051948568
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Car_Moving.unity
     guid: 0936478e3145e5241b4be04fbd58ea01
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Factory_Front.unity
     guid: 8648d7d1ca35b1945a0ef90cba87ad59
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Factory_Back.unity
     guid: 961d1f8f7e3f68146b22841aaf9b283f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Fac_Inside_1.unity
     guid: 47ef6766e1a717d478cc44399cadac22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Fac_Inside_2.unity
     guid: 16218f714017be043962b2a9023104f1
   - enabled: 1
     path: Assets/Scenes/Final_Game_Build/Fac_Storage.unity
     guid: d466c5bcb8e15e84394455d7448db33d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final_Game_Build/Cedits.unity
     guid: a7cffc4da8dedb94e8e95879fce21222
   m_configObjects: {}
